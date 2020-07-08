@@ -1,0 +1,2 @@
+/usr/bin/ar qc libstrategy-lib.a  CMakeFiles/strategy-lib.dir/src/Duck.cpp.o CMakeFiles/strategy-lib.dir/src/MallardDuck.cpp.o CMakeFiles/strategy-lib.dir/src/ModelDuck.cpp.o CMakeFiles/strategy-lib.dir/src/Quack.cpp.o CMakeFiles/strategy-lib.dir/src/Squeak.cpp.o CMakeFiles/strategy-lib.dir/src/MuteQuack.cpp.o CMakeFiles/strategy-lib.dir/src/FlyWithWings.cpp.o CMakeFiles/strategy-lib.dir/src/FlyNoWay.cpp.o CMakeFiles/strategy-lib.dir/src/FlyRocketPowered.cpp.o CMakeFiles/strategy-lib.dir/src/DuckCall.cpp.o
+/usr/bin/ranlib libstrategy-lib.a
