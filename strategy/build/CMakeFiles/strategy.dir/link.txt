@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/strategy.dir/main.cpp.o  -o strategy  libstrategy-lib.a 

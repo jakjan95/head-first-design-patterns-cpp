@@ -1,4 +1,0 @@
-/home/jakub/Desktop/github/head-first-design-patterns-cpp/strategy/build/CMakeFiles/rebuild_cache.dir
-/home/jakub/Desktop/github/head-first-design-patterns-cpp/strategy/build/CMakeFiles/edit_cache.dir
-/home/jakub/Desktop/github/head-first-design-patterns-cpp/strategy/build/CMakeFiles/strategy.dir
-/home/jakub/Desktop/github/head-first-design-patterns-cpp/strategy/build/CMakeFiles/strategy-lib.dir
