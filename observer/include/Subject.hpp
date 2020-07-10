@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Observer.hpp"
+class Observer;
+//#include "Observer.hpp"
 //meybe forward declaration class Observer; co by nie korzystac z includa :P
 class Subject {
 public:
