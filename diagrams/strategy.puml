@@ -1,0 +1,78 @@
+@startuml strategy
+
+abstract class FlyBehavior{
+    fly()
+}
+
+class FlyWithWings{
+    fly()
+}
+
+class FlyNoWay{
+    fly()
+}
+
+class FlyRocketPowered{
+    fly()
+}
+
+
+abstract class QuackBehavior{
+    quack()
+}
+
+class Quack{
+    quack()
+}
+
+class Squeak{
+    quack()
+}
+
+class MuteQuack{
+    quack()
+}
+
+
+abstract class Duck{
+    -quackBehavior_
+    -flyBehavior_
+    +swim()
+    +display()
+    +performQuack()
+    +performFly()
+    +setQuackBehavior()
+    +setFlyBehavior()
+}
+
+class MallardDuck{
+    +display()
+}
+
+class ModelDuck{
+    +display()
+}
+
+class DuckCall{
+    -quackBehavior_
+    +performQuack()
+
+}
+
+FlyBehavior <|.. FlyWithWings
+FlyBehavior <|.. FlyNoWay
+FlyBehavior <|.. FlyRocketPowered
+
+QuackBehavior <|.. Quack
+QuackBehavior <|.. Squeak
+QuackBehavior <|.. MuteQuack
+
+Duck *- FlyBehavior
+Duck *- QuackBehavior
+
+QuackBehavior -* DuckCall
+
+Duck <|-- MallardDuck
+Duck <|-- ModelDuck
+
+@enduml strategy

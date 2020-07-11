@@ -1,0 +1,86 @@
+@startuml observer
+
+abstract class Subject {
+    +registerObserver()
+    +removeObserver()
+    +notifyObservers()
+}
+
+abstract class Observer{
+    +update()
+}
+
+abstract class DisplayElement{
+    +display()
+}
+
+class WeatherData{
+    -observers_
+    -temperature_
+    -humidity_
+    -ressure
+    +registerObserver()
+    +removeObserver()
+    +notifyObservers()
+
+    +getTemperature()
+    +getHumidity()
+    +getPressure()
+    +measurmentsChanged()
+}
+
+class CurrentConditionDisplay{
+    -temperature_
+    -humidity_
+    -weatherData_ : Subject
+    +update()
+    +display()
+}
+
+class StaticticsDisplay{
+    -maxTemperature_
+    -minTemperautre_
+    -totalTemperature_
+    -numberofReadings_
+    -weatherData_ : Subject
+    +update()
+    +display()
+}
+
+class ForecastDisplay{
+    -currentPressure_
+    -lastPressure_
+    -weatherData_ : Subject
+    +update()
+    +display()
+}
+
+class HeatIndexDisplay{
+    -heatIndex_
+    -weatherData_ : Subject
+    +update()
+    +computeHeatIndex()
+    +display()
+}
+
+Subject o- Observer
+Subject <|.. WeatherData
+
+WeatherData o- CurrentConditionDisplay
+WeatherData o- StaticticsDisplay
+WeatherData o- ForecastDisplay
+WeatherData o- HeatIndexDisplay
+
+Observer <|.. CurrentConditionDisplay
+Observer <|.. StaticticsDisplay
+Observer <|.. ForecastDisplay
+Observer <|.. HeatIndexDisplay
+
+DisplayElement <|.. CurrentConditionDisplay
+DisplayElement <|.. StaticticsDisplay
+DisplayElement <|.. ForecastDisplay
+DisplayElement <|.. HeatIndexDisplay
+
+
+
+@enduml
