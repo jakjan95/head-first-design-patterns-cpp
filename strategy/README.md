@@ -15,4 +15,3 @@ Strategy Pattern defines a family of algorithms, encapsulates each one, and make
 ## Class diagram for pattern
 
 ![Alt text](./strategy.svg)
-<img src="./strategy.svg">
