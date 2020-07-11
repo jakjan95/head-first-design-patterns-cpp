@@ -17,4 +17,4 @@ Observer Pattern defines a one-to-many dependency between objects so that when o
 ## Class diagram for pattern
 
 ![Alt text](./observer.svg)
-<img src="./observer.svg">
+
