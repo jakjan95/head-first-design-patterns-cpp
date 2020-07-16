@@ -14,9 +14,9 @@ The Decorator Pattern attaches additional responsibilites to an object dynamical
 
 4. Strive for loosely coupled designs between objects that interact.
 
-5. <b>Classes should be open for extension, but closed for modification.</b>
+5. **Classes should be open for extension, but closed for modification.**
 
-## Class diagram for pattern
+## Class diagram for this pattern
 
 ![Alt text](./decorator.svg)
 

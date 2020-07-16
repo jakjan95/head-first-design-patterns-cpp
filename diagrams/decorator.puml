@@ -1,0 +1,70 @@
+@startuml decorator
+
+abstract class Beverage{
+    #description_;
+    +getDescription()
+    +cost()
+}
+
+class DarkRoast{
+    +getDescription()
+    +cost()
+}
+
+class Decaf{
+    +getDescription()
+    +cost()
+}
+
+class Espresso{
+    +getDescription()
+    +cost()
+}
+
+class HouseBlend{
+    +getDescription()
+    +cost()
+}
+
+class CondimentDecorator{
+    +CondimentDecorator(beverage: Beverage)
+    #beverage_
+
+}
+
+class Milk{
+    +getDescription()
+    +cost()
+}
+
+class Mocha{
+    +getDescription()
+    +cost()
+}
+
+class Soy{
+    +getDescription()
+    +cost()
+}
+
+class Whip{
+    +getDescription()
+    +cost()
+}
+
+Beverage <|.. CondimentDecorator
+
+Beverage <|.. DarkRoast
+Beverage <|.. Decaf
+Beverage <|.. Espresso
+Beverage <|.. HouseBlend
+
+CondimentDecorator o-- Beverage
+
+CondimentDecorator <|-- Milk
+CondimentDecorator <|-- Mocha
+CondimentDecorator <|-- Soy
+CondimentDecorator <|-- Whip
+
+@enduml
+
