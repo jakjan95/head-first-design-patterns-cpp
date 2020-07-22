@@ -13,7 +13,5 @@ public:
         toppings_.push_back("Onions");
         toppings_.push_back("Red Peppers");
         toppings_.push_back("Pepperoni");
-
-
     }
 };

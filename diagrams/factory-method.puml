@@ -1,0 +1,83 @@
+@startuml factory-method
+
+
+'Creator
+abstract class PizzaStore{
+    +orderPizza();
+    +createPizza();
+}
+
+class NYPizzaStore{
+    +createPizza();
+}
+
+class ChicagoPizzaStore{
+    +createPizza();
+}
+
+PizzaStore <|-- NYPizzaStore
+PizzaStore <|-- ChicagoPizzaStore
+
+
+'Product
+abstract class Pizza{
+    #name_;
+    #dough_;
+    #sauce_;
+    #toppings_;
+
+    +prepare();
+    +bake();
+    +cut();
+    +box();
+    +getName()
+}
+
+class NYStyleCheesePizza{
+    +NYStyleCheesePizza()
+
+}
+
+class NYStyleClamPizza{
+    +NYStyleClamPizza()
+}
+
+class NYStylePepperoniPizza{
+    +NYStylePepperoniPizza()
+}
+
+class NYStyleVeggiePizza{
+    +NYStyleVeggiePizza()
+}
+
+
+class ChicagoStyleCheesePizza{
+    +ChicagoStyleCheesePizza()
+    +cut()
+}
+
+class ChicagoStyleClamPizza{
+    +ChicagoStyleClamPizza()
+}
+
+class ChicagoStylePepperoniPizza{
+    +ChicagoStylePepperoniPizza()
+    +cut()
+}
+
+class ChicagoStyleVeggiePizza{
+    +ChicagoStyleVeggiePizza()
+
+}
+
+Pizza <|-- NYStyleCheesePizza
+Pizza <|-- NYStyleClamPizza
+Pizza <|-- NYStylePepperoniPizza
+Pizza <|-- NYStyleVeggiePizza
+
+Pizza <|-- ChicagoStyleCheesePizza
+Pizza <|-- ChicagoStyleClamPizza
+Pizza <|-- ChicagoStylePepperoniPizza
+Pizza <|-- ChicagoStyleVeggiePizza
+
+@enduml
