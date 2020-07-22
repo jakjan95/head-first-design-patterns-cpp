@@ -2,15 +2,18 @@
 
 #include "Pizza.hpp"
 
-class ChicagoStyleCheesePizza : public Pizza {
+class ChicagoStylePepperoniPizza : public Pizza {
 public:
-    ChicagoStyleCheesePizza() {
-        name_ = "Chicago Style Deep Dish Cheese Pizza";
+    ChicagoStylePepperoniPizza() {
+        name_ = "Chicago Style Hot Pepperoni Pizza";
         dough_ = "Extra Thick Crust Dough";
         sauce_ = "Plum Tomato Sauce";
         toppings_.push_back("Sharedded Mozzarella Cheese");
         toppings_.push_back("Parmesan");
-        toppings_.push_back("Oregano");
+        toppings_.push_back("Eggplant");
+        toppings_.push_back("Spinach");
+        toppings_.push_back("Black Olives");
+        toppings_.push_back("Pepperoni");
     }
 
     void cut() {
