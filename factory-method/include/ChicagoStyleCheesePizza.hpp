@@ -2,6 +2,8 @@
 
 #include "Pizza.hpp"
 
+#include <iostream>
+
 class ChicagoStyleCheesePizza : public Pizza {
 public:
     ChicagoStyleCheesePizza() {
