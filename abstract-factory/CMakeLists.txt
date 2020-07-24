@@ -9,22 +9,40 @@ include_directories(src)
 set(HEADERS   
     include/Cheese.hpp
     include/CheesePizza.hpp
+    include/ChicagoPizzaStore.hpp
+    include/ClamPizza.hpp
+    include/Clams.hpp
     include/Dough.hpp
+    include/FreshClams.hpp
     include/MarinaraSauce.hpp
+    include/Mushrooms.hpp
     include/NYPizzaIngredientFactory.hpp
     include/NYPizzaStore.hpp
+    include/Onions.hpp
+    include/Pepperoni.hpp
+    include/PepperoniPizza.hpp
     include/Pizza.hpp
     include/PizzaIngredientFactory.hpp
     include/PizzaStore.hpp
+    include/RedPeppers.hpp
     include/ReggianoCheese.hpp
     include/Sauce.hpp
+    include/SlicedPepperoni.hpp
     include/ThinCrustDough.hpp
+    include/VeggiePizza.hpp
+    include/Veggies.hpp
     )
 
 set(SRC
+    src/CheesePizza.cpp
+    src/ChicagoPizzaStore.cpp
+    src/ClamPizza.cpp
+    src/NYPizzaIngredientFactory.cpp
+    src/NYPizzaStore.cpp
+    src/PepperoniPizza.cpp
     src/Pizza.cpp
     src/PizzaStore.cpp
-    src/NYPizzaStore.cpp
+    src/VeggiePizza.cpp
     )
 
 add_library(${PROJECT_NAME}-lib STATIC ${SRC})

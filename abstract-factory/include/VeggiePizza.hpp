@@ -3,9 +3,9 @@
 #include "Pizza.hpp"
 #include "PizzaIngredientFactory.hpp"
 
-class CheesePizza : public Pizza {
+class VeggiePizza : public Pizza {
 public:
-    explicit CheesePizza(std::shared_ptr<PizzaIngredientFactory> ingredientFactory);
+    explicit VeggiePizza(std::shared_ptr<PizzaIngredientFactory> ingredientFactory);
     void prepare() override;
 
 private:

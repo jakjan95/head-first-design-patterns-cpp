@@ -1,15 +1,14 @@
 #pragma once
 
 #include <memory>
-//#include <vector>
+#include <vector>
 
-#include "Dough.hpp"
-#include "Sauce.hpp"
 #include "Cheese.hpp"
-
-// class Veggies;
-// class Pepperoni;
-// class Clams;
+#include "Clams.hpp"
+#include "Dough.hpp"
+#include "Pepperoni.hpp"
+#include "Sauce.hpp"
+#include "Veggies.hpp"
 
 class PizzaIngredientFactory {
 public:
@@ -17,8 +16,7 @@ public:
     virtual std::shared_ptr<Dough> createDough() = 0;
     virtual std::shared_ptr<Sauce> createSauce() = 0;
     virtual std::shared_ptr<Cheese> createCheese() = 0;
-
-    // virtual std::vector<std::unique_ptr<Veggies>> createVeggies() = 0;
-    // virtual std::unique_ptr<Pepperoni> createPepperoni() = 0;
-    // virtual std::unique_ptr<Clams> createClams() = 0;
+    virtual std::vector<std::shared_ptr<Veggies>> createVeggies() = 0;
+    virtual std::shared_ptr<Pepperoni> createPepperoni() = 0;
+    virtual std::shared_ptr<Clams> createClams() = 0;
 };
