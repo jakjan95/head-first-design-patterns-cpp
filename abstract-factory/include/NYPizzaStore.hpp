@@ -4,5 +4,5 @@
 
 class NYPizzaStore : public PizzaStore {
 public:
-    std::shared_ptr<Pizza> createPizza(std::string item) override;
+    std::shared_ptr<Pizza> createPizza(const std::string& item) override;
 };

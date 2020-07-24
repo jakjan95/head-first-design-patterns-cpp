@@ -1,8 +1,8 @@
-// #pragma once
+#pragma once
 
-// #include "PizzaStore.hpp"
+#include "PizzaStore.hpp"
 
-// class ChicagoPizzaStore : public PizzaStore {
-// public:
-//     std::unique_ptr<Pizza> createPizza(std::string item) override;
-// };
+class ChicagoPizzaStore : public PizzaStore {
+public:
+    std::shared_ptr<Pizza> createPizza(const std::string& item) override;
+};

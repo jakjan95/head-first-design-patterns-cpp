@@ -7,14 +7,19 @@ include_directories(include)
 include_directories(src)
 
 set(HEADERS   
+    include/BlackOlives.hpp
     include/Cheese.hpp
     include/CheesePizza.hpp
+    include/ChicagoPizzaIngredientFactory.hpp
     include/ChicagoPizzaStore.hpp
     include/ClamPizza.hpp
     include/Clams.hpp
     include/Dough.hpp
+    include/Eggplant.hpp
     include/FreshClams.hpp
+    include/FrozenClams.hpp
     include/MarinaraSauce.hpp
+    include/MozzarellaCheese.hpp
     include/Mushrooms.hpp
     include/NYPizzaIngredientFactory.hpp
     include/NYPizzaStore.hpp
@@ -24,10 +29,13 @@ set(HEADERS
     include/Pizza.hpp
     include/PizzaIngredientFactory.hpp
     include/PizzaStore.hpp
+    include/PlumTomatoSauce.hpp
     include/RedPeppers.hpp
     include/ReggianoCheese.hpp
     include/Sauce.hpp
     include/SlicedPepperoni.hpp
+    include/Spinach.hpp
+    include/ThickCrustDough.hpp
     include/ThinCrustDough.hpp
     include/VeggiePizza.hpp
     include/Veggies.hpp
@@ -35,6 +43,7 @@ set(HEADERS
 
 set(SRC
     src/CheesePizza.cpp
+    src/ChicagoPizzaIngredientFactory.cpp
     src/ChicagoPizzaStore.cpp
     src/ClamPizza.cpp
     src/NYPizzaIngredientFactory.cpp

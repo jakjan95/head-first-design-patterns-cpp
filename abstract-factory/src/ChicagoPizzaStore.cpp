@@ -1,20 +1,29 @@
-// #include "ChicagoPizzaStore.hpp"
+#include "ChicagoPizzaStore.hpp"
 
-// #include "ChicagoStyleCheesePizza.hpp"
-// #include "ChicagoStyleClamPizza.hpp"
-// #include "ChicagoStylePepperoniPizza.hpp"
-// #include "ChicagoStyleVeggiePizza.hpp"
+#include "ChicagoPizzaIngredientFactory.hpp"
 
-// std::unique_ptr<Pizza> ChicagoPizzaStore::createPizza(std::string item) {
-//     std::unique_ptr<Pizza> pizza = nullptr;
-//     if (item == "cheese") {
-//         pizza = std::make_unique<ChicagoStyleCheesePizza>();
-//     } else if (item == "veggie") {
-//         pizza = std::make_unique<ChicagoStyleVeggiePizza>();
-//     } else if (item == "clam") {
-//         pizza = std::make_unique<ChicagoStyleClamPizza>();
-//     } else if (item == "pepperoni") {
-//         pizza = std::make_unique<ChicagoStylePepperoniPizza>();
-//     }
-//     return pizza;
-// }
+#include "CheesePizza.hpp"
+#include "ClamPizza.hpp"
+#include "PepperoniPizza.hpp"
+#include "VeggiePizza.hpp"
+
+std::shared_ptr<Pizza> ChicagoPizzaStore::createPizza(const std::string& item) {
+    std::shared_ptr<Pizza> pizza = nullptr;
+    auto ingredientFactory = std::make_shared<ChicagoPizzaIngredientFactory>();
+
+    if (item == "cheese") {
+        pizza = std::make_shared<CheesePizza>(ingredientFactory);
+        pizza->setName("Chicago Cheese Pizza");
+    } else if (item == "veggie") {
+        pizza = std::make_shared<VeggiePizza>(ingredientFactory);
+        pizza->setName("Chicago Veggie Pizza");
+    } else if (item == "clam") {
+        pizza = std::make_shared<ClamPizza>(ingredientFactory);
+        pizza->setName("Chicago Clam Pizza");
+    } else if (item == "pepperoni") {
+        pizza = std::make_shared<PepperoniPizza>(ingredientFactory);
+        pizza->setName("Chicago Pepperoni Pizza");
+    }
+
+    return pizza;
+}

@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-std::shared_ptr<Pizza> PizzaStore::orderPizza(std::string type) {
+std::shared_ptr<Pizza> PizzaStore::orderPizza(const std::string& type) {
     auto pizza = createPizza(type);
 
     if (pizza) {

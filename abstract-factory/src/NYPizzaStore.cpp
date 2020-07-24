@@ -7,7 +7,7 @@
 #include "PepperoniPizza.hpp"
 #include "VeggiePizza.hpp"
 
-std::shared_ptr<Pizza> NYPizzaStore::createPizza(std::string item) {
+std::shared_ptr<Pizza> NYPizzaStore::createPizza(const std::string& item) {
     std::shared_ptr<Pizza> pizza = nullptr;
     auto ingredientFactory = std::make_shared<NYPizzaIngredientFactory>();
 

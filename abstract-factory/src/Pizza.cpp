@@ -18,7 +18,7 @@ std::string Pizza::getName() const {
     return name_;
 }
 
-void Pizza::setName(std::string name) {
+void Pizza::setName(const std::string& name) {
     name_ = name;
 }
 

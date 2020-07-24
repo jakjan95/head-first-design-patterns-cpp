@@ -21,7 +21,7 @@ public:
     virtual void box();
 
     std::string getName() const;
-    void setName(std::string name);
+    void setName(const std::string& name);
 
     friend std::ostream& operator<<(std::ostream& os, const Pizza& p);
 
