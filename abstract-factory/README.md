@@ -9,5 +9,4 @@ The Abstract Factory Pattern provides an interface for creating families of rela
 **Depend upon abstractions. Do not depend upon concrete classes**
 
 ## Class diagram for this pattern
-
-<!-- ![Alt text](./factory-method.svg) --!>
+![Alt text](./abstract-factory.svg)

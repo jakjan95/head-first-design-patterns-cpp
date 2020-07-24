@@ -1,0 +1,239 @@
+@startuml abstract-factory
+left to right direction
+
+abstract class PizzaStore{
+    +orderPizza()
+    +createPizza()
+}
+
+class NYPizzaStore{
+    +createPizza()
+}
+
+class ChicagoPizzaStore{
+    +createPizza()
+}
+
+PizzaStore <|.. NYPizzaStore
+PizzaStore <|.. ChicagoPizzaStore
+
+
+abstract class Pizza{
+    #name_
+    #dough_
+    #sauce_
+    #cheese_
+    #veggies_
+    #pepperoni_
+    #clams_
+
+    +prepare()
+    +bake()
+    +cut()
+    +box()
+    +getName()
+    +setName()
+}
+
+class CheesePizza{
+    -ingredientFactory_
+    +CheesePizza(ingredientFactory: PizzaIngredientFactory)
+
+}
+
+class ClamPizza{
+    -ingredientFactory_
+    +ClamPizza(ingredientFactory: PizzaIngredientFactory)
+}
+
+class PepperoniPizza{
+    -ingredientFactory_
+    +PepperoniPizza(ingredientFactory: PizzaIngredientFactory)
+}
+
+class VeggiePizza{
+    -ingredientFactory_
+    +VeggiePizza(ingredientFactory: PizzaIngredientFactory)
+}
+
+Pizza <|. CheesePizza
+Pizza <|. ClamPizza
+Pizza <|. PepperoniPizza
+Pizza <|. VeggiePizza
+
+
+'Abstract Factory
+abstract class PizzaIngredientFactory {
+    +createDough()
+    +createSauce()
+    +createCheese()
+    +createVeggies()
+    +createPepperoni()
+    +createClams()
+}
+
+class NYPizzaIngredientFactory {
+    +createDough()
+    +createSauce()
+    +createCheese()
+    +createVeggies()
+    +createPepperoni()
+    +createClams()
+}
+
+class ChicagoPizzaIngredientFactory {
+    +createDough()
+    +createSauce()
+    +createCheese()
+    +createVeggies()
+    +createPepperoni()
+    +createClams()
+}
+
+PizzaIngredientFactory <|.. NYPizzaIngredientFactory
+PizzaIngredientFactory <|.. ChicagoPizzaIngredientFactory
+
+'Products
+abstract class Dough{
+    toString()
+}
+
+class ThickCrustDought{
+    toString()
+}
+
+class ThinCrustDought{
+    toString()
+}
+
+Dough <|.. ThickCrustDought
+Dough <|.. ThinCrustDought
+
+'------
+abstract class Sauce{
+    toString()
+}
+
+class PlumTomatoSauce{
+    toString()
+}
+
+class MarinaraSauce{
+    toString()
+}
+
+Sauce <|.. PlumTomatoSauce
+Sauce <|.. MarinaraSauce
+
+'------
+abstract class Cheese{
+    toString()
+}
+
+class MozzarellaCheese{
+    toString()
+}
+
+class ReggianoCheese{
+    toString()
+}
+
+Cheese <|.. MozzarellaCheese
+Cheese <|.. ReggianoCheese
+
+'------
+abstract class Clams{
+    toString()
+}
+
+class FreshClams{
+    toString()
+}
+
+class FrozenClams{
+    toString()
+}
+
+Clams <|.. FreshClams
+Clams <|.. FrozenClams
+'---
+
+abstract class Pepperoni{
+    toString()
+}
+
+class SlicedPepperoni{
+    toString()
+}
+
+Pepperoni <|.. SlicedPepperoni
+
+'---
+abstract class Veggies{
+    toString()
+}
+
+class BlackOlives{
+    toString()
+}
+
+class Onions{
+    toString()
+}
+
+class Spinache{
+    toString()
+}
+
+class Eggplant{
+    toString()
+}
+
+class RedPepper{
+    toString()
+}
+
+class Mushrooms{
+    toString()
+}
+
+Veggies <|.. BlackOlives
+Veggies <|.. Onions
+Veggies <|.. Spinache
+Veggies <|.. Eggplant
+Veggies <|.. RedPepper
+Veggies <|.. Mushrooms
+
+NYPizzaIngredientFactory <-- ThinCrustDought
+NYPizzaIngredientFactory <-- MarinaraSauce
+NYPizzaIngredientFactory <-- ReggianoCheese
+NYPizzaIngredientFactory <-- FreshClams
+NYPizzaIngredientFactory <-- SlicedPepperoni
+NYPizzaIngredientFactory <-- Mushrooms
+NYPizzaIngredientFactory <-- Onions
+NYPizzaIngredientFactory <-- RedPepper
+
+ChicagoPizzaIngredientFactory <-- ThickCrustDought
+ChicagoPizzaIngredientFactory <-- PlumTomatoSauce
+ChicagoPizzaIngredientFactory <-- MozzarellaCheese
+ChicagoPizzaIngredientFactory <-- FrozenClams
+ChicagoPizzaIngredientFactory <-- SlicedPepperoni
+ChicagoPizzaIngredientFactory <-- BlackOlives
+ChicagoPizzaIngredientFactory <-- Spinache
+ChicagoPizzaIngredientFactory <-- Eggplant
+
+Pizza o- Dough
+Pizza o- Sauce
+Pizza o- Cheese
+Pizza o- Clams
+Pizza o- Veggies
+Pizza o- Pepperoni
+
+PizzaStore <- Pizza
+
+VeggiePizza *-- PizzaIngredientFactory
+CheesePizza *-- PizzaIngredientFactory
+ClamPizza   *-- PizzaIngredientFactory
+PepperoniPizza  *-- PizzaIngredientFactory
+
+@enduml
