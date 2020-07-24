@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "./include/ChicagoPizzaStore.hpp"
-#include "./include/NYPizzaStore.hpp"
+#include "ChicagoPizzaStore.hpp"
+#include "NYPizzaStore.hpp"
 
 int main() {
     auto nyStore = new NYPizzaStore();
