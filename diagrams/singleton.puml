@@ -1,0 +1,22 @@
+@startuml singleton
+
+class ChocolateBoiler{
+    -empty_
+    -boiled_
+    -uniqueInstance_ : ChocolateBoiler
+    --
+    -ChocolateBoiler()
+    -~ChocolateBoiler()
+    ..
+    +getInstance()
+    +fill()
+    +drain()
+    +boil()
+    +isEmpty()
+    +isBoiled()
+}
+
+ChocolateBoiler <-- ChocolateBoiler
+
+
+@enduml

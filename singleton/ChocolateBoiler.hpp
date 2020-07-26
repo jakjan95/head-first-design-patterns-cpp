@@ -43,7 +43,7 @@ public:
         return boiled_;
     }
 
-protected:
+private:
     bool empty_;
     bool boiled_;
     static ChocolateBoiler* uniqueInstance_;
