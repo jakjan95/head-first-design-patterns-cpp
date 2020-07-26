@@ -10,14 +10,7 @@ public:
     //Singletons should not be assignable.
     void operator=(const ChocolateBoiler&) = delete;
 
-    static ChocolateBoiler* getInstance() {
-        if (!uniqueInstance_) {
-            std::cout << "Creating unique instance of ChocolateBoiler\n";
-            uniqueInstance_ = new ChocolateBoiler();
-        }
-        std::cout << "Returning unique instance of ChocolateBoiler\n";
-        return uniqueInstance_;
-    }
+    static ChocolateBoiler* getInstance();
 
     void fill() {
         if (isEmpty()) {
@@ -62,7 +55,16 @@ protected:
         uniqueInstance_ = nullptr;
     }
 };
-//to pomoglo
+
+
 ChocolateBoiler* ChocolateBoiler::uniqueInstance_ = nullptr;;
 
-//static method outside of class
+//Static methods should be outside of class
+ChocolateBoiler* ChocolateBoiler::getInstance() {
+    if (!uniqueInstance_) {
+        std::cout << "Creating unique instance of ChocolateBoiler\n";
+        uniqueInstance_ = new ChocolateBoiler();
+    }
+    std::cout << "Returning unique instance of ChocolateBoiler\n";
+    return uniqueInstance_;
+}
