@@ -14,12 +14,16 @@
 #include "StereoOffCommand.hpp"
 #include "StereoOnWithCDCommand.hpp"
 
+#include "CeilingFan.hpp"
+#include "CeilingFanOnCommand.hpp"
+#include "CeilingFanOffCommand.hpp"
+
 int main() {
     RemoteControl remoteControl;
 
     Light livingRoomLight("Living Room");
     Light kitchenLight("Kitchen");
-    //CeilingFan
+    CeilingFan ceilingFan("Living Room");
     GarageDoor garageDoor;
     Stereo stereo("Living Room");
 
@@ -29,7 +33,9 @@ int main() {
     auto kitchenLightOn = std::make_shared<LightOnCommand>(std::make_shared<Light>(kitchenLight));
     auto kitchenLightOff = std::make_shared<LightOffCommand>(std::make_shared<Light>(kitchenLight));
 
-    //ceiling
+    auto ceilingFanOn = std::make_shared<CeilingFanOnCommand>(std::make_shared<CeilingFan>(ceilingFan));
+    auto ceilingFanOff = std::make_shared<CeilingFanOffCommand>(std::make_shared<CeilingFan>(ceilingFan));
+
 
     auto garageDoorUpCommand = std::make_shared<GarageDoorUpCommand>(std::make_shared<GarageDoor>(garageDoor));
     auto garageDoorDownCommand = std::make_shared<GarageDoorDownCommand>(std::make_shared<GarageDoor>(garageDoor));
@@ -39,7 +45,7 @@ int main() {
 
     remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
     remoteControl.setCommand(1, kitchenLightOn, kitchenLightOff);
-    //remoteControl.setCommand(2, livingRoomLightOn, livingRoomLightOff); Ceiling
+    remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
     remoteControl.setCommand(3, garageDoorUpCommand, garageDoorDownCommand);
     remoteControl.setCommand(4, stereoOnWithCD, stereoOff);
 

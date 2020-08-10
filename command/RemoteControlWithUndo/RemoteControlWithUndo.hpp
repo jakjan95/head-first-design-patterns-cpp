@@ -6,20 +6,18 @@
 #include "Command.hpp"
 #include "NoCommand.hpp"
 
-class RemoteControl {
+class RemoteControlWithUndo {
 public:
-    RemoteControl() {
+    RemoteControlWithUndo() {
         onCommands_ = std::vector<std::shared_ptr<Command>>(7);
         offCommands_ = std::vector<std::shared_ptr<Command>>(7);
 
-        //sjsjsjsjjs
-        //std::shared_ptr<Command> noCommand = std::make_shared<NoCommand>();
-
-        //foor loop:
         for (size_t i = 0; i < onCommands_.size(); ++i) {
             onCommands_[i] = std::make_shared<NoCommand>();
             offCommands_[i] = std::make_shared<NoCommand>();
         }
+
+        undoCommand_ = std::make_shared<NoCommand>();
     }
 
     void setCommand(int slot, std::shared_ptr<Command> onCommand, std::shared_ptr<Command> offCommand) {
@@ -29,15 +27,19 @@ public:
 
     void onButtonWasPushed(int slot) {
         onCommands_[slot]->execute();
+        undoCommand_ = onCommands_[slot];
     }
 
     void offButtonWasPushed(int slot) {
         offCommands_[slot]->execute();
+        undoCommand_ = offCommands_[slot];
     }
 
-    //ostream << jak w przypadku piccy?
-    //nazwa klasy tej komendy :P
-    friend std::ostream& operator<<(std::ostream& os, const RemoteControl& cntrl) {
+    void undoButtonWasPushed() {
+        undoCommand_->undo();
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const RemoteControlWithUndo& cntrl) {
         os << "\n------ Remote Control -----\n";
         return os;
     }
@@ -45,4 +47,5 @@ public:
 private:
     std::vector<std::shared_ptr<Command>> onCommands_;
     std::vector<std::shared_ptr<Command>> offCommands_;
+    std::shared_ptr<Command> undoCommand_;
 };
