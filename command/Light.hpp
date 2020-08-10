@@ -4,10 +4,16 @@
 
 class Light {
 public:
+    Light(const std::string& location)
+        : location_{location} {}
+
     void on() {
-        std::cout << "Light is on!\n";
+        std::cout << location_ << " light is on!\n";
     }
     void off() {
-        std::cout << "Light is off!\n";
+        std::cout << location_ << " light is off!\n";
     }
+
+private:
+    std::string location_;
 };
