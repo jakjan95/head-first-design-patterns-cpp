@@ -15,8 +15,14 @@
 #include "StereoOnWithCDCommand.hpp"
 
 #include "CeilingFan.hpp"
-#include "CeilingFanOnCommand.hpp"
 #include "CeilingFanOffCommand.hpp"
+#include "CeilingFanOnCommand.hpp"
+
+#include "TV.hpp"
+#include "TVOffCommand.hpp"
+#include "TVOnCommand.hpp"
+
+#include "MacroCommand.hpp"
 
 int main() {
     RemoteControlWithUndo remoteControl;
@@ -37,7 +43,6 @@ int main() {
     auto ceilingFanMedium = std::make_shared<CeilingFanOnCommand>(ceilingFan, CeilingFan::FanSpeed::medium);
     auto ceilingFanHigh = std::make_shared<CeilingFanOnCommand>(ceilingFan, CeilingFan::FanSpeed::high);
     auto ceilingFanOff = std::make_shared<CeilingFanOffCommand>(ceilingFan);
-
 
     auto garageDoorUpCommand = std::make_shared<GarageDoorUpCommand>(std::make_shared<GarageDoor>(garageDoor));
     auto garageDoorDownCommand = std::make_shared<GarageDoorDownCommand>(std::make_shared<GarageDoor>(garageDoor));
@@ -83,6 +88,21 @@ int main() {
     remoteControl.offButtonWasPushed(6);
     remoteControl.undoButtonWasPushed();
 
+    //Using macro command:
+    std::cout << "***************** MACRO COMMAND *****************\n\n";
+    auto tv = std::make_shared<TV>("Living room");
+    auto tvOnCommand = std::make_shared<TVOnCommand>(tv);
+    auto tvOffCommand = std::make_shared<TVOffCommand>(tv);
+
+    std::vector<std::shared_ptr<Command>> partyOn{livingRoomLightOn, stereoOnWithCD, ceilingFanHigh, tvOnCommand};
+    std::vector<std::shared_ptr<Command>> partyOff{livingRoomLightOff, stereoOff, ceilingFanOff, tvOffCommand};
+
+    auto partyOnMacro = std::make_shared<MacroCommand>(partyOn);
+    auto partyOffMacro = std::make_shared<MacroCommand>(partyOff);
+    remoteControl.setCommand(0, partyOnMacro, partyOffMacro);
+    remoteControl.onButtonWasPushed(0);
+    remoteControl.offButtonWasPushed(0);
+    remoteControl.undoButtonWasPushed();
 
     return 0;
 }
