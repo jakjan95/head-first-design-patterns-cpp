@@ -18,7 +18,7 @@ public:
         light_->on();
     }
 
-    std::string getCommandName() override{
+    std::string getCommandName() override {
         return "LightOffCommand";
     }
 
