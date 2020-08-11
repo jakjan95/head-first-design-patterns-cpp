@@ -10,6 +10,12 @@ public:
 
     void execute() override {
     }
+
     void undo() override {
     }
+
+    std::string getCommandName() override{
+        return "No command";
+    }
+
 };

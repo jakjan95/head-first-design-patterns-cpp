@@ -15,8 +15,12 @@ public:
         ceilingFan_->setSpeed(CeilingFan::FanSpeed::off);
     }
 
-    void undo() override{
+    void undo() override {
         ceilingFan_->setSpeed(previous_);
+    }
+
+    std::string getCommandName() override{
+        return "CeilingFanOffCommand";
     }
 
 private:

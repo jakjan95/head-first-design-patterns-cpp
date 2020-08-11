@@ -10,12 +10,16 @@ public:
     LightOnCommand(std::shared_ptr<Light> light)
         : light_{std::move(light)} {}
 
-    void execute() override{
+    void execute() override {
         light_->on();
     }
 
-    void undo() override{
+    void undo() override {
         light_->off();
+    }
+
+    std::string getCommandName() override{
+        return "LightOnCommand";
     }
 
 private:

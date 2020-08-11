@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iomanip>
 #include <memory>
 #include <vector>
 
@@ -39,8 +40,15 @@ public:
         undoCommand_->undo();
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const RemoteControlWithUndo& cntrl) {
-        os << "\n------ Remote Control -----\n";
+    friend std::ostream& operator<<(std::ostream& os, const RemoteControlWithUndo& remoteControl) {
+        os << "\n--------- Remote Control --------\n";
+        for (size_t i = 0; i < remoteControl.onCommands_.size(); ++i) {
+            os << "SLOT [" << i << "] |" << std::setw(30) << remoteControl.onCommands_[i]->getCommandName() 
+            << " |" << std::setw(30) << remoteControl.offCommands_[i]->getCommandName() << '\n';
+        }
+        if (remoteControl.undoCommand_) {
+            os << "UNDO : " << remoteControl.undoCommand_->getCommandName() << '\n';
+        }
         return os;
     }
 

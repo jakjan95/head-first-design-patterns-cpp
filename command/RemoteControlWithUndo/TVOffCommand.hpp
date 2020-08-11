@@ -18,6 +18,10 @@ public:
         tv_->on();
     }
 
+    std::string getCommandName() override{
+        return "TVOffCommand";
+    }
+
 private:
     std::shared_ptr<TV> tv_;
 };

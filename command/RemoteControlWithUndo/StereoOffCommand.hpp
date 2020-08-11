@@ -20,6 +20,10 @@ public:
         stereo_->setVolume(11);
     }
 
+    std::string getCommandName() override {
+        return "StereoOffCommand";
+    }
+
 private:
     std::shared_ptr<Stereo> stereo_;
 };

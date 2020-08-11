@@ -19,6 +19,11 @@ public:
     void undo() override {
         stereo_->off();
     }
+    
+    std::string getCommandName() override{
+        return "StereoOnWithCDCommand";
+    }
+
 
 private:
     std::shared_ptr<Stereo> stereo_;

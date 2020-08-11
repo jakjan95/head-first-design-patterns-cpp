@@ -89,6 +89,7 @@ int main() {
     remoteControl.undoButtonWasPushed();
 
     //Using macro command:
+    std::cout << remoteControl << '\n';
     std::cout << "***************** MACRO COMMAND *****************\n\n";
     auto tv = std::make_shared<TV>("Living room");
     auto tvOnCommand = std::make_shared<TVOnCommand>(tv);
@@ -100,6 +101,9 @@ int main() {
     auto partyOnMacro = std::make_shared<MacroCommand>(partyOn);
     auto partyOffMacro = std::make_shared<MacroCommand>(partyOff);
     remoteControl.setCommand(0, partyOnMacro, partyOffMacro);
+
+
+    std::cout << remoteControl << '\n';
     remoteControl.onButtonWasPushed(0);
     remoteControl.offButtonWasPushed(0);
     remoteControl.undoButtonWasPushed();

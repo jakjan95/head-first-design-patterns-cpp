@@ -17,6 +17,10 @@ public:
         garageDoor_->down();
     }
 
+    std::string getCommandName() override {
+        return "GarageDoorUpCommand";
+    }
+
 private:
     std::shared_ptr<GarageDoor> garageDoor_;
 };

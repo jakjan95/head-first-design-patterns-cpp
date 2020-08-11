@@ -21,6 +21,10 @@ public:
         std::for_each(commands_.rbegin(), commands_.rend(), [](auto el) { el->undo(); });
     }
 
+    std::string getCommandName() override{
+        return "Macro command";
+    }
+
 private:
     std::vector<std::shared_ptr<Command>> commands_;
 };
