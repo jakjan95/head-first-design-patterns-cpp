@@ -1,0 +1,105 @@
+@startuml command
+left to right direction
+
+class Client{
+
+}
+
+class RemoteControlWithUndo{
+    -onCommands_ : Command[7]
+    -OffCommands_ : Command[7]
+    -undoCommand_ : Command
+    setCommand()
+    onButtonWasPushed()
+    offButtonWasPushed()
+    undoButtonWasPushed()
+}
+
+abstract class Command{
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+RemoteControlWithUndo *- Command
+
+
+class CeilingFan{
+    -speed_
+    -location_
+    +setSpeed()
+    +getSpeed()
+    +getSpeedString()
+}
+
+enum FanSpeed{
+    off
+    low
+    medium
+    high
+}
+
+'CeilingFan *-FanSpeed
+FanSpeed -* CeilingFan
+
+class GarageDoor{
+    +up()
+    +down()
+    +stop()
+    +lightOn()
+    +lightOff()
+}
+
+class Light{
+    -light_
+    +on()
+    +off()
+}
+
+class Stereo{
+    -location_
+    +on()
+    +off()
+    +setCD()
+    +setDVD()
+    +setRadio()
+    +setVolume()
+}
+
+class TV{
+    -location_
+    +on()
+    +off()
+}
+
+class CeilingFanOffCommand{
+    -ceilingFan_
+    -previous_ : FanSpeed
+    +CeilingFanOffCommand(ceilingFan : CeilingFan)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class CeilingFanOnCommand{
+    -ceilingFan_
+    -previous_ : FanSpeed
+    -givenSpeed_ : FanSpeed
+    +CeilingFanOffCommand(ceilingFan : CeilingFan, givenSpeed : FanSpeed)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+Command <|.. CeilingFanOnCommand
+Command <|.. CeilingFanOffCommand
+
+
+CeilingFan <- CeilingFanOnCommand
+CeilingFan <- CeilingFanOffCommand
+
+Client -> CeilingFan
+Client .> CeilingFanOnCommand
+Client .> CeilingFanOffCommand
+
+@enduml
