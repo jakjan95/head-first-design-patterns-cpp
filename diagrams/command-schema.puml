@@ -1,0 +1,36 @@
+@startuml command-schema
+
+
+class Invoker{
+    setCommand()
+}
+
+class Client {
+
+}
+
+abstract class Command <<Interface>>{
+    +execute()
+    +undo()
+}
+
+Invoker *- Command
+
+
+class ConcreteCommand{
+    +execute()
+    +undo()
+}
+
+Command <|.. ConcreteCommand
+
+class Receiver{
+    action()
+}
+
+Receiver <- ConcreteCommand
+
+Client .> ConcreteCommand
+Client -> Receiver
+
+@enduml

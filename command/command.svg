@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="2619px" preserveAspectRatio="none" style="width:711px;height:2619px;" version="1.1" viewBox="0 0 711 2619" width="711px" zoomAndPan="magnify"><defs><filter height="300%" id="f1l7c0r7z64fuj" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[ef10dbcbad5cc50121684bdb2c83a7fb]
+class RemoteControlWithUndo--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="137.6328" id="RemoteControlWithUndo" style="stroke: #A80036; stroke-width: 1.5;" width="199" x="6" y="1173"/><ellipse cx="27.3" cy="1189" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M30.2688,1194.6406 Q29.6906,1194.9375 29.05,1195.0781 Q28.4094,1195.2344 27.7063,1195.2344 Q25.2063,1195.2344 23.8781,1193.5938 Q22.5656,1191.9375 22.5656,1188.8125 Q22.5656,1185.6875 23.8781,1184.0313 Q25.2063,1182.375 27.7063,1182.375 Q28.4094,1182.375 29.05,1182.5313 Q29.7063,1182.6875 30.2688,1182.9844 L30.2688,1185.7031 Q29.6438,1185.125 29.05,1184.8594 Q28.4563,1184.5781 27.8313,1184.5781 Q26.4875,1184.5781 25.8,1185.6563 Q25.1125,1186.7188 25.1125,1188.8125 Q25.1125,1190.9063 25.8,1191.9844 Q26.4875,1193.0469 27.8313,1193.0469 Q28.4563,1193.0469 29.05,1192.7813 Q29.6438,1192.5 30.2688,1191.9219 L30.2688,1194.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="153" x="42.7" y="1193.1543">RemoteControlWithUndo</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="204" y1="1205" y2="1205"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="1213"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="170" x="26" y="1219.2104">onCommands_ : Command[7]</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="1225.8047"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="173" x="26" y="1232.0151">OffCommands_ : Command[7]</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="14" y="1238.6094"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="162" x="26" y="1244.8198">undoCommand_ : Command</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="204" y1="1251.4141" y2="1251.4141"/><ellipse cx="17" cy="1262.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="84" x="26" y="1265.6245">setCommand()</text><ellipse cx="17" cy="1275.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="124" x="26" y="1278.4292">onButtonWasPushed()</text><ellipse cx="17" cy="1288.0234" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="125" x="26" y="1291.2339">offButtonWasPushed()</text><ellipse cx="17" cy="1300.8281" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="138" x="26" y="1304.0386">undoButtonWasPushed()</text><!--MD5=[521817ab83e81da341a3f4b5e91bae41]
+class Command--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="86.4141" id="Command" style="stroke: #A80036; stroke-width: 1.5;" width="143" x="34" y="1346"/><ellipse cx="71.05" cy="1362" fill="#A9DCDF" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M71.1594,1357.3438 L70.0031,1362.4219 L72.3313,1362.4219 L71.1594,1357.3438 Z M69.675,1355.1094 L72.6594,1355.1094 L76.0188,1367.5 L73.5656,1367.5 L72.8,1364.4375 L69.5188,1364.4375 L68.7688,1367.5 L66.3313,1367.5 L69.675,1355.1094 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="62" x="89.95" y="1366.1543">Command</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="35" x2="176" y1="1378" y2="1378"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="35" x2="176" y1="1386" y2="1386"/><ellipse cx="45" cy="1397" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="54" y="1400.2104">execute()</text><ellipse cx="45" cy="1409.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="54" y="1413.0151">undo()</text><ellipse cx="45" cy="1422.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="54" y="1425.8198">getCommandName()</text><!--MD5=[087a1dd5d96d80c68903debde0600c69]
+class CeilingFan--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="CeilingFan" style="stroke: #A80036; stroke-width: 1.5;" width="122" x="421.5" y="424"/><ellipse cx="448.2" cy="440" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M451.1688,445.6406 Q450.5906,445.9375 449.95,446.0781 Q449.3094,446.2344 448.6063,446.2344 Q446.1063,446.2344 444.7781,444.5938 Q443.4656,442.9375 443.4656,439.8125 Q443.4656,436.6875 444.7781,435.0313 Q446.1063,433.375 448.6063,433.375 Q449.3094,433.375 449.95,433.5313 Q450.6063,433.6875 451.1688,433.9844 L451.1688,436.7031 Q450.5438,436.125 449.95,435.8594 Q449.3563,435.5781 448.7313,435.5781 Q447.3875,435.5781 446.7,436.6563 Q446.0125,437.7188 446.0125,439.8125 Q446.0125,441.9063 446.7,442.9844 Q447.3875,444.0469 448.7313,444.0469 Q449.3563,444.0469 449.95,443.7813 Q450.5438,443.5 451.1688,442.9219 L451.1688,445.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="464.8" y="444.1543">CeilingFan</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="422.5" x2="542.5" y1="456" y2="456"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="429.5" y="464"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="41" x="441.5" y="470.2104">speed_</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="429.5" y="476.8047"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="50" x="441.5" y="483.0151">location_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="422.5" x2="542.5" y1="489.6094" y2="489.6094"/><ellipse cx="432.5" cy="500.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="441.5" y="503.8198">setSpeed()</text><ellipse cx="432.5" cy="513.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="441.5" y="516.6245">getSpeed()</text><ellipse cx="432.5" cy="526.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="96" x="441.5" y="529.4292">getSpeedString()</text><!--MD5=[4fdf431a03a1305711a075858a9ae2dc]
+class FanSpeed--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="99.2188" id="FanSpeed" style="stroke: #A80036; stroke-width: 1.5;" width="95" x="435" y="289.5"/><ellipse cx="450" cy="305.5" fill="#EB937F" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M454.1094,311.5 L446.3906,311.5 L446.3906,299.1094 L454.1094,299.1094 L454.1094,301.2656 L448.8438,301.2656 L448.8438,303.9375 L453.6094,303.9375 L453.6094,306.0938 L448.8438,306.0938 L448.8438,309.3438 L454.1094,309.3438 L454.1094,311.5 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="63" x="464" y="309.6543">FanSpeed</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="436" x2="529" y1="321.5" y2="321.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="15" x="441" y="335.7104">off</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="19" x="441" y="348.5151">low</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="46" x="441" y="361.3198">medium</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="24" x="441" y="374.1245">high</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="436" x2="529" y1="380.7188" y2="380.7188"/><!--MD5=[3445162a473baa3946fd4942ca83d296]
+class GarageDoor--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="GarageDoor" style="stroke: #A80036; stroke-width: 1.5;" width="108" x="428.5" y="905"/><ellipse cx="443.5" cy="921" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M446.4688,926.6406 Q445.8906,926.9375 445.25,927.0781 Q444.6094,927.2344 443.9063,927.2344 Q441.4063,927.2344 440.0781,925.5938 Q438.7656,923.9375 438.7656,920.8125 Q438.7656,917.6875 440.0781,916.0313 Q441.4063,914.375 443.9063,914.375 Q444.6094,914.375 445.25,914.5313 Q445.9063,914.6875 446.4688,914.9844 L446.4688,917.7031 Q445.8438,917.125 445.25,916.8594 Q444.6563,916.5781 444.0313,916.5781 Q442.6875,916.5781 442,917.6563 Q441.3125,918.7188 441.3125,920.8125 Q441.3125,922.9063 442,923.9844 Q442.6875,925.0469 444.0313,925.0469 Q444.6563,925.0469 445.25,924.7813 Q445.8438,924.5 446.4688,923.9219 L446.4688,926.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="76" x="457.5" y="925.1543">GarageDoor</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="429.5" x2="535.5" y1="937" y2="937"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="429.5" x2="535.5" y1="945" y2="945"/><ellipse cx="439.5" cy="956" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="22" x="448.5" y="959.2104">up()</text><ellipse cx="439.5" cy="968.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="38" x="448.5" y="972.0151">down()</text><ellipse cx="439.5" cy="981.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="33" x="448.5" y="984.8198">stop()</text><ellipse cx="439.5" cy="994.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="48" x="448.5" y="997.6245">lightOn()</text><ellipse cx="439.5" cy="1007.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49" x="448.5" y="1010.4292">lightOff()</text><!--MD5=[7c1a0278dec21c72584b17e1785fd623]
+class Light--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="86.4141" id="Light" style="stroke: #A80036; stroke-width: 1.5;" width="62" x="451.5" y="1346"/><ellipse cx="466.5" cy="1362" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M469.4688,1367.6406 Q468.8906,1367.9375 468.25,1368.0781 Q467.6094,1368.2344 466.9063,1368.2344 Q464.4063,1368.2344 463.0781,1366.5938 Q461.7656,1364.9375 461.7656,1361.8125 Q461.7656,1358.6875 463.0781,1357.0313 Q464.4063,1355.375 466.9063,1355.375 Q467.6094,1355.375 468.25,1355.5313 Q468.9063,1355.6875 469.4688,1355.9844 L469.4688,1358.7031 Q468.8438,1358.125 468.25,1357.8594 Q467.6563,1357.5781 467.0313,1357.5781 Q465.6875,1357.5781 465,1358.6563 Q464.3125,1359.7188 464.3125,1361.8125 Q464.3125,1363.9063 465,1364.9844 Q465.6875,1366.0469 467.0313,1366.0469 Q467.6563,1366.0469 468.25,1365.7813 Q468.8438,1365.5 469.4688,1364.9219 L469.4688,1367.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="30" x="480.5" y="1366.1543">Light</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="452.5" x2="512.5" y1="1378" y2="1378"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="459.5" y="1386"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="30" x="471.5" y="1392.2104">light_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="452.5" x2="512.5" y1="1398.8047" y2="1398.8047"/><ellipse cx="462.5" cy="1409.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="22" x="471.5" y="1413.0151">on()</text><ellipse cx="462.5" cy="1422.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="23" x="471.5" y="1425.8198">off()</text><!--MD5=[891700c1939f9713fbce2c9592969fe8]
+class Stereo--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="137.6328" id="Stereo" style="stroke: #A80036; stroke-width: 1.5;" width="94" x="435.5" y="1761"/><ellipse cx="459.5" cy="1777" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M462.4688,1782.6406 Q461.8906,1782.9375 461.25,1783.0781 Q460.6094,1783.2344 459.9063,1783.2344 Q457.4063,1783.2344 456.0781,1781.5938 Q454.7656,1779.9375 454.7656,1776.8125 Q454.7656,1773.6875 456.0781,1772.0313 Q457.4063,1770.375 459.9063,1770.375 Q460.6094,1770.375 461.25,1770.5313 Q461.9063,1770.6875 462.4688,1770.9844 L462.4688,1773.7031 Q461.8438,1773.125 461.25,1772.8594 Q460.6563,1772.5781 460.0313,1772.5781 Q458.6875,1772.5781 458,1773.6563 Q457.3125,1774.7188 457.3125,1776.8125 Q457.3125,1778.9063 458,1779.9844 Q458.6875,1781.0469 460.0313,1781.0469 Q460.6563,1781.0469 461.25,1780.7813 Q461.8438,1780.5 462.4688,1779.9219 L462.4688,1782.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="42" x="475.5" y="1781.1543">Stereo</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="436.5" x2="528.5" y1="1793" y2="1793"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="443.5" y="1801"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="50" x="455.5" y="1807.2104">location_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="436.5" x2="528.5" y1="1813.8047" y2="1813.8047"/><ellipse cx="446.5" cy="1824.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="22" x="455.5" y="1828.0151">on()</text><ellipse cx="446.5" cy="1837.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="23" x="455.5" y="1840.8198">off()</text><ellipse cx="446.5" cy="1850.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="42" x="455.5" y="1853.6245">setCD()</text><ellipse cx="446.5" cy="1863.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="49" x="455.5" y="1866.4292">setDVD()</text><ellipse cx="446.5" cy="1876.0234" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="57" x="455.5" y="1879.2339">setRadio()</text><ellipse cx="446.5" cy="1888.8281" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="68" x="455.5" y="1892.0386">setVolume()</text><!--MD5=[9022e2192881f166c529fc3ae75dec7b]
+class TV--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="86.4141" id="TV" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="444.5" y="2228"/><ellipse cx="472.55" cy="2244" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M475.5188,2249.6406 Q474.9406,2249.9375 474.3,2250.0781 Q473.6594,2250.2344 472.9563,2250.2344 Q470.4563,2250.2344 469.1281,2248.5938 Q467.8156,2246.9375 467.8156,2243.8125 Q467.8156,2240.6875 469.1281,2239.0313 Q470.4563,2237.375 472.9563,2237.375 Q473.6594,2237.375 474.3,2237.5313 Q474.9563,2237.6875 475.5188,2237.9844 L475.5188,2240.7031 Q474.8938,2240.125 474.3,2239.8594 Q473.7063,2239.5781 473.0813,2239.5781 Q471.7375,2239.5781 471.05,2240.6563 Q470.3625,2241.7188 470.3625,2243.8125 Q470.3625,2245.9063 471.05,2246.9844 Q471.7375,2248.0469 473.0813,2248.0469 Q473.7063,2248.0469 474.3,2247.7813 Q474.8938,2247.5 475.5188,2246.9219 L475.5188,2249.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="15" x="489.45" y="2248.1543">TV</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="445.5" x2="519.5" y1="2260" y2="2260"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="452.5" y="2268"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="50" x="464.5" y="2274.2104">location_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="445.5" x2="519.5" y1="2280.8047" y2="2280.8047"/><ellipse cx="455.5" cy="2291.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="22" x="464.5" y="2295.0151">on()</text><ellipse cx="455.5" cy="2304.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="23" x="464.5" y="2307.8198">off()</text><!--MD5=[7e5c137294c0a5694a770eb7396b3ec5]
+class CeilingFanOffCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="124.8281" id="CeilingFanOffCommand" style="stroke: #A80036; stroke-width: 1.5;" width="293" x="336" y="571.5"/><ellipse cx="406.75" cy="587.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M409.7188,593.1406 Q409.1406,593.4375 408.5,593.5781 Q407.8594,593.7344 407.1563,593.7344 Q404.6563,593.7344 403.3281,592.0938 Q402.0156,590.4375 402.0156,587.3125 Q402.0156,584.1875 403.3281,582.5313 Q404.6563,580.875 407.1563,580.875 Q407.8594,580.875 408.5,581.0313 Q409.1563,581.1875 409.7188,581.4844 L409.7188,584.2031 Q409.0938,583.625 408.5,583.3594 Q407.9063,583.0781 407.2813,583.0781 Q405.9375,583.0781 405.25,584.1563 Q404.5625,585.2188 404.5625,587.3125 Q404.5625,589.4063 405.25,590.4844 Q405.9375,591.5469 407.2813,591.5469 Q407.9063,591.5469 408.5,591.2813 Q409.0938,591 409.7188,590.4219 L409.7188,593.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="427.25" y="591.6543">CeilingFanOffCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="337" x2="628" y1="603.5" y2="603.5"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="344" y="611.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="356" y="617.7104">ceilingFan_</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="344" y="624.3047"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="123" x="356" y="630.5151">previous_ : FanSpeed</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="337" x2="628" y1="637.1094" y2="637.1094"/><ellipse cx="347" cy="648.1094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="267" x="356" y="651.3198">CeilingFanOffCommand(ceilingFan : CeilingFan)</text><ellipse cx="347" cy="660.9141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="356" y="664.1245">execute()</text><ellipse cx="347" cy="673.7188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="356" y="676.9292">undo()</text><ellipse cx="347" cy="686.5234" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="356" y="689.7339">getCommandName()</text><!--MD5=[6886bc0cb3b66f15fbecd149ae78ac2c]
+class CeilingFanOnCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="137.6328" id="CeilingFanOnCommand" style="stroke: #A80036; stroke-width: 1.5;" width="435" x="265" y="732"/><ellipse cx="406.75" cy="748" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M409.7188,753.6406 Q409.1406,753.9375 408.5,754.0781 Q407.8594,754.2344 407.1563,754.2344 Q404.6563,754.2344 403.3281,752.5938 Q402.0156,750.9375 402.0156,747.8125 Q402.0156,744.6875 403.3281,743.0313 Q404.6563,741.375 407.1563,741.375 Q407.8594,741.375 408.5,741.5313 Q409.1563,741.6875 409.7188,741.9844 L409.7188,744.7031 Q409.0938,744.125 408.5,743.8594 Q407.9063,743.5781 407.2813,743.5781 Q405.9375,743.5781 405.25,744.6563 Q404.5625,745.7188 404.5625,747.8125 Q404.5625,749.9063 405.25,750.9844 Q405.9375,752.0469 407.2813,752.0469 Q407.9063,752.0469 408.5,751.7813 Q409.0938,751.5 409.7188,750.9219 L409.7188,753.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="143" x="427.25" y="752.1543">CeilingFanOnCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="266" x2="699" y1="764" y2="764"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="273" y="772"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="62" x="285" y="778.2104">ceilingFan_</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="273" y="784.8047"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="123" x="285" y="791.0151">previous_ : FanSpeed</text><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="273" y="797.6094"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="140" x="285" y="803.8198">givenSpeed_ : FanSpeed</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="266" x2="699" y1="810.4141" y2="810.4141"/><ellipse cx="276" cy="821.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="409" x="285" y="824.6245">CeilingFanOffCommand(ceilingFan : CeilingFan, givenSpeed : FanSpeed)</text><ellipse cx="276" cy="834.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="285" y="837.4292">execute()</text><ellipse cx="276" cy="847.0234" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="285" y="850.2339">undo()</text><ellipse cx="276" cy="859.8281" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="285" y="863.0386">getCommandName()</text><!--MD5=[8e28faaed9a9e54d2fdb38245c5afb14]
+class GarageDoorUpCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="GarageDoorUpCommand" style="stroke: #A80036; stroke-width: 1.5;" width="324" x="320.5" y="1199"/><ellipse cx="400.75" cy="1215" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M403.7188,1220.6406 Q403.1406,1220.9375 402.5,1221.0781 Q401.8594,1221.2344 401.1563,1221.2344 Q398.6563,1221.2344 397.3281,1219.5938 Q396.0156,1217.9375 396.0156,1214.8125 Q396.0156,1211.6875 397.3281,1210.0313 Q398.6563,1208.375 401.1563,1208.375 Q401.8594,1208.375 402.5,1208.5313 Q403.1563,1208.6875 403.7188,1208.9844 L403.7188,1211.7031 Q403.0938,1211.125 402.5,1210.8594 Q401.9063,1210.5781 401.2813,1210.5781 Q399.9375,1210.5781 399.25,1211.6563 Q398.5625,1212.7188 398.5625,1214.8125 Q398.5625,1216.9063 399.25,1217.9844 Q399.9375,1219.0469 401.2813,1219.0469 Q401.9063,1219.0469 402.5,1218.7813 Q403.0938,1218.5 403.7188,1217.9219 L403.7188,1220.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="155" x="421.25" y="1219.1543">GarageDoorUpCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="321.5" x2="643.5" y1="1231" y2="1231"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="328.5" y="1239"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="340.5" y="1245.2104">garageDoor_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="321.5" x2="643.5" y1="1251.8047" y2="1251.8047"/><ellipse cx="331.5" cy="1262.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="298" x="340.5" y="1266.0151">GarageDoorUpCommand(garageDoor : GarageDoor)</text><ellipse cx="331.5" cy="1275.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="340.5" y="1278.8198">execute()</text><ellipse cx="331.5" cy="1288.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="340.5" y="1291.6245">undo()</text><ellipse cx="331.5" cy="1301.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="340.5" y="1304.4292">getCommandName()</text><!--MD5=[7ffa270af07a8e846a216d34d8f988f4]
+class GarageDoorDownCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="GarageDoorDownCommand" style="stroke: #A80036; stroke-width: 1.5;" width="340" x="312.5" y="1052"/><ellipse cx="392.25" cy="1068" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M395.2188,1073.6406 Q394.6406,1073.9375 394,1074.0781 Q393.3594,1074.2344 392.6563,1074.2344 Q390.1563,1074.2344 388.8281,1072.5938 Q387.5156,1070.9375 387.5156,1067.8125 Q387.5156,1064.6875 388.8281,1063.0313 Q390.1563,1061.375 392.6563,1061.375 Q393.3594,1061.375 394,1061.5313 Q394.6563,1061.6875 395.2188,1061.9844 L395.2188,1064.7031 Q394.5938,1064.125 394,1063.8594 Q393.4063,1063.5781 392.7813,1063.5781 Q391.4375,1063.5781 390.75,1064.6563 Q390.0625,1065.7188 390.0625,1067.8125 Q390.0625,1069.9063 390.75,1070.9844 Q391.4375,1072.0469 392.7813,1072.0469 Q393.4063,1072.0469 394,1071.7813 Q394.5938,1071.5 395.2188,1070.9219 L395.2188,1073.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="172" x="412.75" y="1072.1543">GarageDoorDownCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="313.5" x2="651.5" y1="1084" y2="1084"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="320.5" y="1092"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="73" x="332.5" y="1098.2104">garageDoor_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="313.5" x2="651.5" y1="1104.8047" y2="1104.8047"/><ellipse cx="323.5" cy="1115.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="314" x="332.5" y="1119.0151">GarageDoorDownCommand(garageDoor : GarageDoor)</text><ellipse cx="323.5" cy="1128.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="332.5" y="1131.8198">execute()</text><ellipse cx="323.5" cy="1141.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="332.5" y="1144.6245">undo()</text><ellipse cx="323.5" cy="1154.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="332.5" y="1157.4292">getCommandName()</text><!--MD5=[1b8424fc98b69c2914dc6275a363a028]
+class LightOffCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="LightOffCommand" style="stroke: #A80036; stroke-width: 1.5;" width="199" x="383" y="1467"/><ellipse cx="424.1" cy="1483" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M427.0688,1488.6406 Q426.4906,1488.9375 425.85,1489.0781 Q425.2094,1489.2344 424.5063,1489.2344 Q422.0063,1489.2344 420.6781,1487.5938 Q419.3656,1485.9375 419.3656,1482.8125 Q419.3656,1479.6875 420.6781,1478.0313 Q422.0063,1476.375 424.5063,1476.375 Q425.2094,1476.375 425.85,1476.5313 Q426.5063,1476.6875 427.0688,1476.9844 L427.0688,1479.7031 Q426.4438,1479.125 425.85,1478.8594 Q425.2563,1478.5781 424.6313,1478.5781 Q423.2875,1478.5781 422.6,1479.6563 Q421.9125,1480.7188 421.9125,1482.8125 Q421.9125,1484.9063 422.6,1485.9844 Q423.2875,1487.0469 424.6313,1487.0469 Q425.2563,1487.0469 425.85,1486.7813 Q426.4438,1486.5 427.0688,1485.9219 L427.0688,1488.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="109" x="443.9" y="1487.1543">LightOffCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="384" x2="581" y1="1499" y2="1499"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="391" y="1507"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="30" x="403" y="1513.2104">light_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="384" x2="581" y1="1519.8047" y2="1519.8047"/><ellipse cx="394" cy="1530.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="173" x="403" y="1534.0151">LightOffCommand(light : Light)</text><ellipse cx="394" cy="1543.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="403" y="1546.8198">execute()</text><ellipse cx="394" cy="1556.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="403" y="1559.6245">undo()</text><ellipse cx="394" cy="1569.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="403" y="1572.4292">getCommandName()</text><!--MD5=[ed666ecf008a7ca9d91cdeef9efaee9c]
+class LightOnCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="LightOnCommand" style="stroke: #A80036; stroke-width: 1.5;" width="199" x="383" y="1614"/><ellipse cx="424.1" cy="1630" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M427.0688,1635.6406 Q426.4906,1635.9375 425.85,1636.0781 Q425.2094,1636.2344 424.5063,1636.2344 Q422.0063,1636.2344 420.6781,1634.5938 Q419.3656,1632.9375 419.3656,1629.8125 Q419.3656,1626.6875 420.6781,1625.0313 Q422.0063,1623.375 424.5063,1623.375 Q425.2094,1623.375 425.85,1623.5313 Q426.5063,1623.6875 427.0688,1623.9844 L427.0688,1626.7031 Q426.4438,1626.125 425.85,1625.8594 Q425.2563,1625.5781 424.6313,1625.5781 Q423.2875,1625.5781 422.6,1626.6563 Q421.9125,1627.7188 421.9125,1629.8125 Q421.9125,1631.9063 422.6,1632.9844 Q423.2875,1634.0469 424.6313,1634.0469 Q425.2563,1634.0469 425.85,1633.7813 Q426.4438,1633.5 427.0688,1632.9219 L427.0688,1635.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="109" x="443.9" y="1634.1543">LightOnCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="384" x2="581" y1="1646" y2="1646"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="391" y="1654"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="30" x="403" y="1660.2104">light_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="384" x2="581" y1="1666.8047" y2="1666.8047"/><ellipse cx="394" cy="1677.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="173" x="403" y="1681.0151">LightOffCommand(light : Light)</text><ellipse cx="394" cy="1690.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="403" y="1693.8198">execute()</text><ellipse cx="394" cy="1703.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="403" y="1706.6245">undo()</text><ellipse cx="394" cy="1716.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="403" y="1719.4292">getCommandName()</text><!--MD5=[7047e263e7ca2b3b091eacd203d137a0]
+class MacroCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="MacroCommand" style="stroke: #A80036; stroke-width: 1.5;" width="274" x="345.5" y="8"/><ellipse cx="428.25" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M431.2188,29.6406 Q430.6406,29.9375 430,30.0781 Q429.3594,30.2344 428.6563,30.2344 Q426.1563,30.2344 424.8281,28.5938 Q423.5156,26.9375 423.5156,23.8125 Q423.5156,20.6875 424.8281,19.0313 Q426.1563,17.375 428.6563,17.375 Q429.3594,17.375 430,17.5313 Q430.6563,17.6875 431.2188,17.9844 L431.2188,20.7031 Q430.5938,20.125 430,19.8594 Q429.4063,19.5781 428.7813,19.5781 Q427.4375,19.5781 426.75,20.6563 Q426.0625,21.7188 426.0625,23.8125 Q426.0625,25.9063 426.75,26.9844 Q427.4375,28.0469 428.7813,28.0469 Q429.4063,28.0469 430,27.7813 Q430.5938,27.5 431.2188,26.9219 L431.2188,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="100" x="448.75" y="28.1543">MacroCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="346.5" x2="618.5" y1="40" y2="40"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="353.5" y="48"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="154" x="365.5" y="54.2104">commands_ : Commands[]</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="346.5" x2="618.5" y1="60.8047" y2="60.8047"/><ellipse cx="356.5" cy="71.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="248" x="365.5" y="75.0151">MacroCommand(commands : Commands[])</text><ellipse cx="356.5" cy="84.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="365.5" y="87.8198">execute()</text><ellipse cx="356.5" cy="97.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="365.5" y="100.6245">undo()</text><ellipse cx="356.5" cy="110.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="365.5" y="113.4292">getCommandName()</text><!--MD5=[3a92d67f31fff67fe698d394d68b70dd]
+class NoCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="99.2188" id="NoCommand" style="stroke: #A80036; stroke-width: 1.5;" width="143" x="411" y="155.5"/><ellipse cx="440.4" cy="171.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M443.3688,177.1406 Q442.7906,177.4375 442.15,177.5781 Q441.5094,177.7344 440.8063,177.7344 Q438.3063,177.7344 436.9781,176.0938 Q435.6656,174.4375 435.6656,171.3125 Q435.6656,168.1875 436.9781,166.5313 Q438.3063,164.875 440.8063,164.875 Q441.5094,164.875 442.15,165.0313 Q442.8063,165.1875 443.3688,165.4844 L443.3688,168.2031 Q442.7438,167.625 442.15,167.3594 Q441.5563,167.0781 440.9313,167.0781 Q439.5875,167.0781 438.9,168.1563 Q438.2125,169.2188 438.2125,171.3125 Q438.2125,173.4063 438.9,174.4844 Q439.5875,175.5469 440.9313,175.5469 Q441.5563,175.5469 442.15,175.2813 Q442.7438,175 443.3688,174.4219 L443.3688,177.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="79" x="457.6" y="175.6543">NoCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="412" x2="553" y1="187.5" y2="187.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="412" x2="553" y1="195.5" y2="195.5"/><ellipse cx="422" cy="206.5" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="81" x="431" y="209.7104">NoCommand()</text><ellipse cx="422" cy="219.3047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="431" y="222.5151">execute()</text><ellipse cx="422" cy="232.1094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="431" y="235.3198">undo()</text><ellipse cx="422" cy="244.9141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="431" y="248.1245">getCommandName()</text><!--MD5=[e94502afdfe91dc916538874f80c3566]
+class StereoOffCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="StereoOffCommand" style="stroke: #A80036; stroke-width: 1.5;" width="223" x="371" y="1934"/><ellipse cx="417.75" cy="1950" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M420.7188,1955.6406 Q420.1406,1955.9375 419.5,1956.0781 Q418.8594,1956.2344 418.1563,1956.2344 Q415.6563,1956.2344 414.3281,1954.5938 Q413.0156,1952.9375 413.0156,1949.8125 Q413.0156,1946.6875 414.3281,1945.0313 Q415.6563,1943.375 418.1563,1943.375 Q418.8594,1943.375 419.5,1943.5313 Q420.1563,1943.6875 420.7188,1943.9844 L420.7188,1946.7031 Q420.0938,1946.125 419.5,1945.8594 Q418.9063,1945.5781 418.2813,1945.5781 Q416.9375,1945.5781 416.25,1946.6563 Q415.5625,1947.7188 415.5625,1949.8125 Q415.5625,1951.9063 416.25,1952.9844 Q416.9375,1954.0469 418.2813,1954.0469 Q418.9063,1954.0469 419.5,1953.7813 Q420.0938,1953.5 420.7188,1952.9219 L420.7188,1955.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="121" x="438.25" y="1954.1543">StereoOffCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="372" x2="593" y1="1966" y2="1966"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="379" y="1974"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="43" x="391" y="1980.2104">stereo_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="372" x2="593" y1="1986.8047" y2="1986.8047"/><ellipse cx="382" cy="1997.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="197" x="391" y="2001.0151">LightOffCommand(stereo : Stereo)</text><ellipse cx="382" cy="2010.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="391" y="2013.8198">execute()</text><ellipse cx="382" cy="2023.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="391" y="2026.6245">undo()</text><ellipse cx="382" cy="2036.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="391" y="2039.4292">getCommandName()</text><!--MD5=[84620a252fc3c1ee4157e88d3061b63c]
+class StereoOnCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="StereoOnCommand" style="stroke: #A80036; stroke-width: 1.5;" width="223" x="371" y="2081"/><ellipse cx="417.75" cy="2097" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M420.7188,2102.6406 Q420.1406,2102.9375 419.5,2103.0781 Q418.8594,2103.2344 418.1563,2103.2344 Q415.6563,2103.2344 414.3281,2101.5938 Q413.0156,2099.9375 413.0156,2096.8125 Q413.0156,2093.6875 414.3281,2092.0313 Q415.6563,2090.375 418.1563,2090.375 Q418.8594,2090.375 419.5,2090.5313 Q420.1563,2090.6875 420.7188,2090.9844 L420.7188,2093.7031 Q420.0938,2093.125 419.5,2092.8594 Q418.9063,2092.5781 418.2813,2092.5781 Q416.9375,2092.5781 416.25,2093.6563 Q415.5625,2094.7188 415.5625,2096.8125 Q415.5625,2098.9063 416.25,2099.9844 Q416.9375,2101.0469 418.2813,2101.0469 Q418.9063,2101.0469 419.5,2100.7813 Q420.0938,2100.5 420.7188,2099.9219 L420.7188,2102.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="121" x="438.25" y="2101.1543">StereoOnCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="372" x2="593" y1="2113" y2="2113"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="379" y="2121"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="43" x="391" y="2127.2104">stereo_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="372" x2="593" y1="2133.8047" y2="2133.8047"/><ellipse cx="382" cy="2144.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="197" x="391" y="2148.0151">LightOffCommand(stereo : Stereo)</text><ellipse cx="382" cy="2157.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="391" y="2160.8198">execute()</text><ellipse cx="382" cy="2170.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="391" y="2173.6245">undo()</text><ellipse cx="382" cy="2183.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="391" y="2186.4292">getCommandName()</text><!--MD5=[018795cc3c6d535b4e8b88450b418099]
+class TVOnCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="TVOnCommand" style="stroke: #A80036; stroke-width: 1.5;" width="172" x="396.5" y="2349"/><ellipse cx="432.2" cy="2365" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M435.1688,2370.6406 Q434.5906,2370.9375 433.95,2371.0781 Q433.3094,2371.2344 432.6063,2371.2344 Q430.1063,2371.2344 428.7781,2369.5938 Q427.4656,2367.9375 427.4656,2364.8125 Q427.4656,2361.6875 428.7781,2360.0313 Q430.1063,2358.375 432.6063,2358.375 Q433.3094,2358.375 433.95,2358.5313 Q434.6063,2358.6875 435.1688,2358.9844 L435.1688,2361.7031 Q434.5438,2361.125 433.95,2360.8594 Q433.3563,2360.5781 432.7313,2360.5781 Q431.3875,2360.5781 430.7,2361.6563 Q430.0125,2362.7188 430.0125,2364.8125 Q430.0125,2366.9063 430.7,2367.9844 Q431.3875,2369.0469 432.7313,2369.0469 Q433.3563,2369.0469 433.95,2368.7813 Q434.5438,2368.5 435.1688,2367.9219 L435.1688,2370.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="94" x="450.8" y="2369.1543">TVOnCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="397.5" x2="567.5" y1="2381" y2="2381"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="404.5" y="2389"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="16" x="416.5" y="2395.2104">tv_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="397.5" x2="567.5" y1="2401.8047" y2="2401.8047"/><ellipse cx="407.5" cy="2412.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="146" x="416.5" y="2416.0151">LightOffCommand(tv : TV)</text><ellipse cx="407.5" cy="2425.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="416.5" y="2428.8198">execute()</text><ellipse cx="407.5" cy="2438.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="416.5" y="2441.6245">undo()</text><ellipse cx="407.5" cy="2451.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="416.5" y="2454.4292">getCommandName()</text><!--MD5=[13462328578882edd696b99e5f71b2b6]
+class TVOffCommand--><rect fill="#FEFECE" filter="url(#f1l7c0r7z64fuj)" height="112.0234" id="TVOffCommand" style="stroke: #A80036; stroke-width: 1.5;" width="172" x="396.5" y="2496"/><ellipse cx="432.2" cy="2512" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M435.1688,2517.6406 Q434.5906,2517.9375 433.95,2518.0781 Q433.3094,2518.2344 432.6063,2518.2344 Q430.1063,2518.2344 428.7781,2516.5938 Q427.4656,2514.9375 427.4656,2511.8125 Q427.4656,2508.6875 428.7781,2507.0313 Q430.1063,2505.375 432.6063,2505.375 Q433.3094,2505.375 433.95,2505.5313 Q434.6063,2505.6875 435.1688,2505.9844 L435.1688,2508.7031 Q434.5438,2508.125 433.95,2507.8594 Q433.3563,2507.5781 432.7313,2507.5781 Q431.3875,2507.5781 430.7,2508.6563 Q430.0125,2509.7188 430.0125,2511.8125 Q430.0125,2513.9063 430.7,2514.9844 Q431.3875,2516.0469 432.7313,2516.0469 Q433.3563,2516.0469 433.95,2515.7813 Q434.5438,2515.5 435.1688,2514.9219 L435.1688,2517.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="94" x="450.8" y="2516.1543">TVOffCommand</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="397.5" x2="567.5" y1="2528" y2="2528"/><rect fill="none" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="404.5" y="2536"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="16" x="416.5" y="2542.2104">tv_</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="397.5" x2="567.5" y1="2548.8047" y2="2548.8047"/><ellipse cx="407.5" cy="2559.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="146" x="416.5" y="2563.0151">LightOffCommand(tv : TV)</text><ellipse cx="407.5" cy="2572.6094" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="416.5" y="2575.8198">execute()</text><ellipse cx="407.5" cy="2585.4141" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="36" x="416.5" y="2588.6245">undo()</text><ellipse cx="407.5" cy="2598.2188" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="117" x="416.5" y="2601.4292">getCommandName()</text><!--MD5=[d7cc1da190353ae525158969f6b08d20]
+reverse link RemoteControlWithUndo to Command--><path d="M105.5,1324.11 C105.5,1331.39 105.5,1338.66 105.5,1345.93 " fill="none" id="RemoteControlWithUndo&lt;-Command" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="105.5,1311.02,101.5,1317.02,105.5,1323.02,109.5,1317.02,105.5,1311.02" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2a10f6594bd5fa45e52e11faf3e5102e]
+link FanSpeed to CeilingFan--><path d="M482.5,388.7 C482.5,396.02 482.5,403.33 482.5,410.65 " fill="none" id="FanSpeed-&gt;CeilingFan" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="482.5,423.82,486.5,417.82,482.5,411.82,478.5,417.82,482.5,423.82" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9d6af3fa98e3eec64e8246baf948008c]
+reverse link Command to CeilingFanOnCommand--><path d="M192.94,1342.8 C197.46,1338.24 201.55,1333.31 205,1328 C312.7,1162.09 143.11,1042.78 265,887 C269.74,880.95 274.96,875.32 280.58,870.09 " fill="none" id="Command&lt;-CeilingFanOnCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="197.06,1348.49,177.29,1356.11,187.98,1337.82,197.06,1348.49" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[36e132e292f009db059e4537992fd323]
+reverse link Command to CeilingFanOffCommand--><path d="M192.53,1343.61 C197.25,1338.83 201.49,1333.63 205,1328 C349.92,1095.24 97.51,931.09 265,714 C283.05,690.6 308.67,674.05 336,662.33 " fill="none" id="Command&lt;-CeilingFanOffCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="196.91,1349.07,177.14,1356.7,187.84,1338.41,196.91,1349.07" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4cd0da75c13ff134d684680041f2e15e]
+reverse link Command to GarageDoorUpCommand--><path d="M196.07,1353.77 C218.51,1345.15 242.58,1336.09 265,1328 C282.91,1321.54 301.71,1314.93 320.45,1308.46 " fill="none" id="Command&lt;-GarageDoorUpCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="198.45,1360.36,177.27,1361.03,193.41,1347.3,198.45,1360.36" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[df5ac39ff93edf37ec26f6cbf127fd47]
+reverse link Command to GarageDoorDownCommand--><path d="M192.8,1340.51 C197.17,1336.56 201.29,1332.39 205,1328 C250.56,1274.12 213.57,1229.32 265,1181 C278.88,1167.96 295.16,1157.25 312.46,1148.44 " fill="none" id="Command&lt;-GarageDoorDownCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="197.09,1346.04,177.1,1353.05,188.36,1335.1,197.09,1346.04" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[86c27f5620ea5f4305a1ed73ed7018d8]
+reverse link Command to LightOnCommand--><path d="M139.25,1449.7 C167.1,1496.05 211.11,1558.33 265,1597 C299.81,1621.98 343.78,1638.87 382.98,1650.06 " fill="none" id="Command&lt;-LightOnCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="133.06,1452.98,129.03,1432.18,145.16,1445.93,133.06,1452.98" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[002bb283488b8a3f0888e4c6ec833fe8]
+reverse link Command to LightOffCommand--><path d="M196.07,1424.23 C218.51,1432.85 242.58,1441.91 265,1450 C303.34,1463.83 345.78,1478.32 382.85,1490.71 " fill="none" id="Command&lt;-LightOffCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="193.41,1430.7,177.27,1416.97,198.45,1417.64,193.41,1430.7" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5c8a04be12644ee15e427f9f8a1fbeee]
+reverse link Command to MacroCommand--><path d="M192.62,1344.01 C197.36,1339.13 201.57,1333.8 205,1328 C339.62,1099.99 105.62,349.44 265,138 C284.79,111.75 314.4,94.74 345.42,83.74 " fill="none" id="Command&lt;-MacroCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="196.83,1349.62,177.09,1357.32,187.72,1338.99,196.83,1349.62" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9e6d8e09f6be59de5843d583679c70cb]
+reverse link Command to NoCommand--><path d="M192.58,1343.99 C197.33,1339.11 201.56,1333.79 205,1328 C325.15,1125.98 120.2,457.15 265,272 C299.3,228.15 361.82,212.3 410.9,206.9 " fill="none" id="Command&lt;-NoCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="196.77,1349.61,177.03,1357.29,187.67,1338.97,196.77,1349.61" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b3d49fec821b471eed4bc144afc5bc56]
+reverse link Command to StereoOnCommand--><path d="M113.5,1452.23 C131.3,1602.19 182.79,1973.62 265,2064 C292.36,2094.08 332.52,2111.77 370.84,2122.18 " fill="none" id="Command&lt;-StereoOnCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="106.53,1452.85,111.17,1432.18,120.43,1451.23,106.53,1452.85" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5ee0b0e72e938793dcd2d2f9149114e3]
+reverse link Command to StereoOffCommand--><path d="M107.58,1452.42 C112.88,1561.93 139.48,1787.19 265,1917 C293.06,1946.01 333.01,1963.5 370.97,1974.03 " fill="none" id="Command&lt;-StereoOffCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="100.57,1452.38,106.78,1432.12,114.56,1451.83,100.57,1452.38" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[1c3d588131dd8ce58138a3abde9d49a5]
+reverse link Command to TVOnCommand--><path d="M108.87,1452.21 C117.18,1641.4 151.04,2198.35 265,2332 C297.56,2370.18 350.8,2388.45 396.34,2397.17 " fill="none" id="Command&lt;-TVOnCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="101.86,1452.3,108.02,1432.02,115.85,1451.71,101.86,1452.3" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[93862b00958eba17ce67f6483360847f]
+reverse link Command to TVOffCommand--><path d="M107.27,1452.11 C111.06,1660.33 133.43,2321.2 265,2479 C297.2,2517.62 350.58,2535.89 396.29,2544.5 " fill="none" id="Command&lt;-TVOffCommand" style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 7.0,7.0;"/><polygon fill="none" points="100.27,1452.14,106.94,1432.02,114.27,1451.9,100.27,1452.14" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b6d844086b28a2b3d61105f3e6d8a8d1]
+reverse link CeilingFan to CeilingFanOnCommand--><path d="M416.25,482.48 C355.89,488.83 270.84,509.1 235,571.5 C207.33,619.67 207.33,648.33 235,696.5 C242.9,710.25 253.06,722.19 264.76,732.56 " fill="none" id="CeilingFan&lt;-CeilingFanOnCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="421.29,481.97,411.9437,478.8641,416.3137,482.4562,412.7216,486.8262,421.29,481.97" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[905058e030ce93bdcbe50ef84004a00c]
+reverse link CeilingFan to CeilingFanOffCommand--><path d="M482.5,541.33 C482.5,551.36 482.5,561.4 482.5,571.44 " fill="none" id="CeilingFan&lt;-CeilingFanOffCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="482.5,536.08,478.5,545.08,482.5,541.08,486.5,545.08,482.5,536.08" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[b18543cbc70f4468cdcc78a64b02753a]
+reverse link GarageDoor to GarageDoorUpCommand--><path d="M423.4,962.51 C362.78,967.73 272.24,986.67 235,1051.5 C210.21,1094.66 210.21,1120.34 235,1163.5 C253.6,1195.88 285.44,1216.91 320.2,1230.55 " fill="none" id="GarageDoor&lt;-GarageDoorUpCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="428.44,962.1,419.1489,958.8326,423.456,962.4999,419.7887,966.8069,428.44,962.1" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5414bb24c2b0ae9a7069530bef1a11a8]
+reverse link GarageDoor to GarageDoorDownCommand--><path d="M482.5,1022.45 C482.5,1032.21 482.5,1041.97 482.5,1051.73 " fill="none" id="GarageDoor&lt;-GarageDoorDownCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="482.5,1017.35,478.5,1026.35,482.5,1022.35,486.5,1026.35,482.5,1017.35" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[40b709a5e745fb96f2c9de1cb67918d4]
+reverse link Light to LightOnCommand--><path d="M446.37,1387.09 C388.36,1386.31 276.74,1394.84 235,1467.5 C210.21,1510.66 210.21,1536.34 235,1579.5 C264.57,1630.98 327.74,1653.52 382.86,1663.24 " fill="none" id="Light&lt;-LightOnCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="451.47,1387.18,442.5399,1383.0263,446.4707,1387.0943,442.4028,1391.0251,451.47,1387.18" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[4f8f3cbea8d3f6d553881a2e94d82478]
+reverse link Light to LightOffCommand--><path d="M482.5,1437.42 C482.5,1447.28 482.5,1457.13 482.5,1466.99 " fill="none" id="Light&lt;-LightOffCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="482.5,1432.26,478.5,1441.26,482.5,1437.26,486.5,1441.26,482.5,1432.26" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[049b29cc96c4dc787154f198664d880d]
+reverse link Stereo to StereoOnCommand--><path d="M430.3,1834.25 C370.09,1842.36 274.37,1865.95 235,1934.5 C210.21,1977.66 210.21,2003.34 235,2046.5 C262.46,2094.31 318.9,2117.16 370.96,2127.96 " fill="none" id="Stereo&lt;-StereoOnCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="435.29,1833.6,425.8503,1830.7907,430.3315,1834.243,426.8792,1838.7242,435.29,1833.6" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[2392a71778c28ed338651786c9a09718]
+reverse link Stereo to StereoOffCommand--><path d="M482.5,1904.42 C482.5,1914.19 482.5,1923.97 482.5,1933.75 " fill="none" id="Stereo&lt;-StereoOffCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="482.5,1899.3,478.5,1908.3,482.5,1904.3,486.5,1908.3,482.5,1899.3" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e678f86c82e8298f056b4a615b1cce74]
+reverse link TV to TVOffCommand--><path d="M438.83,2269.04 C379.15,2269.13 274.99,2279.87 235,2349.5 C210.21,2392.66 210.21,2418.34 235,2461.5 C267.02,2517.24 338.44,2539.06 396.37,2547.4 " fill="none" id="TV&lt;-TVOffCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="444.1,2269.06,435.1115,2265.0343,439.1,2269.0457,435.0886,2273.0343,444.1,2269.06" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5aedb5f9dc26b465964f3a5b4f35122f]
+reverse link TV to TVOnCommand--><path d="M482.5,2319.42 C482.5,2329.28 482.5,2339.13 482.5,2348.99 " fill="none" id="TV&lt;-TVOnCommand" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="482.5,2314.26,478.5,2323.26,482.5,2319.26,486.5,2323.26,482.5,2314.26" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[56ab3309613d13e642675fe9920c51a2]
+@startuml command
+left to right direction
+
+class RemoteControlWithUndo{
+    -onCommands_ : Command[7]
+    -OffCommands_ : Command[7]
+    -undoCommand_ : Command
+    +setCommand()
+    +onButtonWasPushed()
+    +offButtonWasPushed()
+    +undoButtonWasPushed()
+}
+
+
+abstract class Command{
+     +execute()
+     +undo()
+     +getCommandName()
+}
+
+RemoteControlWithUndo *- Command
+
+
+class CeilingFan{
+    -speed_
+    -location_
+    +setSpeed()
+    +getSpeed()
+    +getSpeedString()
+}
+
+enum FanSpeed{
+    off
+    low
+    medium
+    high
+}
+
+'CeilingFan *-FanSpeed
+FanSpeed -* CeilingFan
+
+class GarageDoor{
+    +up()
+    +down()
+    +stop()
+    +lightOn()
+    +lightOff()
+}
+
+class Light{
+    -light_
+    +on()
+    +off()
+}
+
+class Stereo{
+    -location_
+    +on()
+    +off()
+    +setCD()
+    +setDVD()
+    +setRadio()
+    +setVolume()
+}
+
+class TV{
+    -location_
+    +on()
+    +off()
+}
+
+class CeilingFanOffCommand{
+    -ceilingFan_
+    -previous_ : FanSpeed
+    +CeilingFanOffCommand(ceilingFan : CeilingFan)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class CeilingFanOnCommand{
+    -ceilingFan_
+    -previous_ : FanSpeed
+    -givenSpeed_ : FanSpeed
+    +CeilingFanOffCommand(ceilingFan : CeilingFan, givenSpeed : FanSpeed)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class GarageDoorUpCommand{
+    -garageDoor_
+    +GarageDoorUpCommand(garageDoor : GarageDoor)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class GarageDoorDownCommand{
+    -garageDoor_
+    +GarageDoorDownCommand(garageDoor : GarageDoor)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class LightOffCommand{
+    -light_
+    +LightOffCommand(light : Light)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class LightOnCommand{
+    -light_
+    +LightOffCommand(light : Light)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class MacroCommand{
+    -commands_ : Commands[]
+    +MacroCommand(commands : Commands[])
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class NoCommand{
+    +NoCommand()
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class StereoOffCommand{
+    -stereo_
+    +LightOffCommand(stereo : Stereo)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class StereoOnCommand{
+    -stereo_
+    +LightOffCommand(stereo : Stereo)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+
+class TVOnCommand{
+    -tv_
+    +LightOffCommand(tv : TV)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class TVOffCommand{
+    -tv_
+    +LightOffCommand(tv : TV)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+
+
+
+
+Command <|.. CeilingFanOnCommand
+Command <|.. CeilingFanOffCommand
+Command <|.. GarageDoorUpCommand
+Command <|.. GarageDoorDownCommand
+Command <|.. LightOnCommand
+Command <|.. LightOffCommand
+Command <|.. MacroCommand
+Command <|.. NoCommand
+Command <|.. StereoOnCommand
+Command <|.. StereoOffCommand
+Command <|.. TVOnCommand
+Command <|.. TVOffCommand
+
+
+CeilingFan <- CeilingFanOnCommand
+CeilingFan <- CeilingFanOffCommand
+
+GarageDoor <- GarageDoorUpCommand
+GarageDoor <- GarageDoorDownCommand
+
+Light <- LightOnCommand
+Light <- LightOffCommand
+
+Stereo <- StereoOnCommand
+Stereo <- StereoOffCommand
+
+TV <- TVOffCommand
+TV <- TVOnCommand
+
+' class Client{
+
+' }
+
+' CeilingFan <- Client
+' CeilingFanOnCommand <. Client
+' CeilingFanOffCommand <. Client
+
+' GarageDoor <- Client
+' GarageDoorUpCommand <. Client
+' GarageDoorDownCommand <. Client
+
+' Light <- Client
+' LightOnCommand <. Client
+' LightOffCommand <. Client
+
+' MacroCommand <. Client
+' NoCommand <. Client
+
+' Stereo <- Client
+' StereoOnCommand <. Client
+' StereoOffCommand <. Client
+
+' TV <- Client
+' TVOnCommand <. Client
+' TVOffCommand <. Client
+
+@enduml
+
+@startuml command
+left to right direction
+
+class RemoteControlWithUndo{
+    -onCommands_ : Command[7]
+    -OffCommands_ : Command[7]
+    -undoCommand_ : Command
+    +setCommand()
+    +onButtonWasPushed()
+    +offButtonWasPushed()
+    +undoButtonWasPushed()
+}
+
+
+abstract class Command{
+     +execute()
+     +undo()
+     +getCommandName()
+}
+
+RemoteControlWithUndo *- Command
+
+
+class CeilingFan{
+    -speed_
+    -location_
+    +setSpeed()
+    +getSpeed()
+    +getSpeedString()
+}
+
+enum FanSpeed{
+    off
+    low
+    medium
+    high
+}
+
+FanSpeed -* CeilingFan
+
+class GarageDoor{
+    +up()
+    +down()
+    +stop()
+    +lightOn()
+    +lightOff()
+}
+
+class Light{
+    -light_
+    +on()
+    +off()
+}
+
+class Stereo{
+    -location_
+    +on()
+    +off()
+    +setCD()
+    +setDVD()
+    +setRadio()
+    +setVolume()
+}
+
+class TV{
+    -location_
+    +on()
+    +off()
+}
+
+class CeilingFanOffCommand{
+    -ceilingFan_
+    -previous_ : FanSpeed
+    +CeilingFanOffCommand(ceilingFan : CeilingFan)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class CeilingFanOnCommand{
+    -ceilingFan_
+    -previous_ : FanSpeed
+    -givenSpeed_ : FanSpeed
+    +CeilingFanOffCommand(ceilingFan : CeilingFan, givenSpeed : FanSpeed)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class GarageDoorUpCommand{
+    -garageDoor_
+    +GarageDoorUpCommand(garageDoor : GarageDoor)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class GarageDoorDownCommand{
+    -garageDoor_
+    +GarageDoorDownCommand(garageDoor : GarageDoor)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class LightOffCommand{
+    -light_
+    +LightOffCommand(light : Light)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class LightOnCommand{
+    -light_
+    +LightOffCommand(light : Light)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class MacroCommand{
+    -commands_ : Commands[]
+    +MacroCommand(commands : Commands[])
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class NoCommand{
+    +NoCommand()
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class StereoOffCommand{
+    -stereo_
+    +LightOffCommand(stereo : Stereo)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class StereoOnCommand{
+    -stereo_
+    +LightOffCommand(stereo : Stereo)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+
+class TVOnCommand{
+    -tv_
+    +LightOffCommand(tv : TV)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class TVOffCommand{
+    -tv_
+    +LightOffCommand(tv : TV)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+
+
+
+
+Command <|.. CeilingFanOnCommand
+Command <|.. CeilingFanOffCommand
+Command <|.. GarageDoorUpCommand
+Command <|.. GarageDoorDownCommand
+Command <|.. LightOnCommand
+Command <|.. LightOffCommand
+Command <|.. MacroCommand
+Command <|.. NoCommand
+Command <|.. StereoOnCommand
+Command <|.. StereoOffCommand
+Command <|.. TVOnCommand
+Command <|.. TVOffCommand
+
+
+CeilingFan <- CeilingFanOnCommand
+CeilingFan <- CeilingFanOffCommand
+
+GarageDoor <- GarageDoorUpCommand
+GarageDoor <- GarageDoorDownCommand
+
+Light <- LightOnCommand
+Light <- LightOffCommand
+
+Stereo <- StereoOnCommand
+Stereo <- StereoOffCommand
+
+TV <- TVOffCommand
+TV <- TVOnCommand
+
+
+
+
+
+
+
+
+
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 11:35:57 CEST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 14.0.1+7-Ubuntu-1ubuntu1
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

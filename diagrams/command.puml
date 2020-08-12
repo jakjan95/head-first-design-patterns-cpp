@@ -1,24 +1,21 @@
 @startuml command
 left to right direction
 
-class Client{
-
-}
-
 class RemoteControlWithUndo{
     -onCommands_ : Command[7]
     -OffCommands_ : Command[7]
     -undoCommand_ : Command
-    setCommand()
-    onButtonWasPushed()
-    offButtonWasPushed()
-    undoButtonWasPushed()
+    +setCommand()
+    +onButtonWasPushed()
+    +offButtonWasPushed()
+    +undoButtonWasPushed()
 }
 
+
 abstract class Command{
-    +execute()
-    +undo()
-    +getCommandName()
+     +execute()
+     +undo()
+     +getCommandName()
 }
 
 RemoteControlWithUndo *- Command
@@ -91,15 +88,144 @@ class CeilingFanOnCommand{
     +getCommandName()
 }
 
+class GarageDoorUpCommand{
+    -garageDoor_
+    +GarageDoorUpCommand(garageDoor : GarageDoor)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class GarageDoorDownCommand{
+    -garageDoor_
+    +GarageDoorDownCommand(garageDoor : GarageDoor)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class LightOffCommand{
+    -light_
+    +LightOffCommand(light : Light)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class LightOnCommand{
+    -light_
+    +LightOffCommand(light : Light)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class MacroCommand{
+    -commands_ : Commands[]
+    +MacroCommand(commands : Commands[])
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class NoCommand{
+    +NoCommand()
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class StereoOffCommand{
+    -stereo_
+    +LightOffCommand(stereo : Stereo)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class StereoOnCommand{
+    -stereo_
+    +LightOffCommand(stereo : Stereo)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+
+class TVOnCommand{
+    -tv_
+    +LightOffCommand(tv : TV)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+class TVOffCommand{
+    -tv_
+    +LightOffCommand(tv : TV)
+    +execute()
+    +undo()
+    +getCommandName()
+}
+
+
+
+
+
 Command <|.. CeilingFanOnCommand
 Command <|.. CeilingFanOffCommand
+Command <|.. GarageDoorUpCommand
+Command <|.. GarageDoorDownCommand
+Command <|.. LightOnCommand
+Command <|.. LightOffCommand
+Command <|.. MacroCommand
+Command <|.. NoCommand
+Command <|.. StereoOnCommand
+Command <|.. StereoOffCommand
+Command <|.. TVOnCommand
+Command <|.. TVOffCommand
 
 
 CeilingFan <- CeilingFanOnCommand
 CeilingFan <- CeilingFanOffCommand
 
-Client -> CeilingFan
-Client .> CeilingFanOnCommand
-Client .> CeilingFanOffCommand
+GarageDoor <- GarageDoorUpCommand
+GarageDoor <- GarageDoorDownCommand
+
+Light <- LightOnCommand
+Light <- LightOffCommand
+
+Stereo <- StereoOnCommand
+Stereo <- StereoOffCommand
+
+TV <- TVOffCommand
+TV <- TVOnCommand
+
+' class Client{
+
+' }
+
+' CeilingFan <- Client
+' CeilingFanOnCommand <. Client
+' CeilingFanOffCommand <. Client
+
+' GarageDoor <- Client
+' GarageDoorUpCommand <. Client
+' GarageDoorDownCommand <. Client
+
+' Light <- Client
+' LightOnCommand <. Client
+' LightOffCommand <. Client
+
+' MacroCommand <. Client
+' NoCommand <. Client
+
+' Stereo <- Client
+' StereoOnCommand <. Client
+' StereoOffCommand <. Client
+
+' TV <- Client
+' TVOnCommand <. Client
+' TVOffCommand <. Client
 
 @enduml
