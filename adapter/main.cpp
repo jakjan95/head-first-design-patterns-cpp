@@ -1,9 +1,8 @@
 #include <iostream>
-
 #include <memory>
+
 #include "MallardDuck.hpp"
 #include "WildTurkey.hpp"
-
 #include "TurkeyAdapter.hpp"
 
 void testDuck(std::shared_ptr<Duck> duck){
