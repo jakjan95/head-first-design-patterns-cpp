@@ -8,8 +8,8 @@
 
 *Principle of the Least Knowledge (Law of Demeter)* - talk only to your immediate friends.
 
-## Class diagram schema for Command pattern
+## Class diagram schema for Facade pattern
 ![Alt text](./facade-schema.svg)
 
-## Class diagram of facade example
+## Class diagram of Facade Pattern example
 ![Alt text](./facade.svg)
