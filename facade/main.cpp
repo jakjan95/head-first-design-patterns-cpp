@@ -2,11 +2,11 @@
 #include <memory>
 
 #include "Amplifier.hpp"
+#include "StreamingPlayer.hpp"
 #include "CdPlayer.hpp"
 #include "PopcornPopper.hpp"
 #include "Projector.hpp"
 #include "Screen.hpp"
-#include "StreamingPlayer.hpp"
 #include "TheaterLights.hpp"
 #include "Tuner.hpp"
 

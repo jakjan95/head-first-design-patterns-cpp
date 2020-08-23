@@ -3,7 +3,7 @@
 #include <iostream>
 #include <memory>
 
-#include "Amplifier.hpp"
+class Amplifier;
 
 class Tuner {
 public:

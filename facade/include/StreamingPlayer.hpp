@@ -5,8 +5,6 @@
 
 class Amplifier;
 
-#include "Amplifier.hpp"
-
 class StreamingPlayer {
 public:
     StreamingPlayer(const std::string& description, std::shared_ptr<Amplifier> amplifier)

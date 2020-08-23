@@ -3,7 +3,7 @@
 #include <iostream>
 #include <memory>
 
-#include "Amplifier.hpp"
+class Amplifier;
 
 class CdPlayer {
 public:
@@ -43,7 +43,6 @@ public:
 
 private:
     std::string description_;
-    //int currentTrack;
     std::shared_ptr<Amplifier> amplifier_;
     std::string title_;
 };
