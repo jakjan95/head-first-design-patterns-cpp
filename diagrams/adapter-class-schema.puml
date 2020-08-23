@@ -1,0 +1,23 @@
+@startuml adapter-class-schema
+
+
+class Target{
+    +request()
+}
+
+class Adaptee{
+    specificRequest()
+}
+
+class Adapter{
+    request()
+}
+
+Target <|-down- Adapter
+Adaptee <|-down- Adapter
+
+class Client{}
+
+Client -> Target
+
+@enduml

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="206px" preserveAspectRatio="none" style="width:354px;height:206px;" version="1.1" viewBox="0 0 354 206" width="354px" zoomAndPan="magnify"><defs><filter height="300%" id="f19cxkjsq5wbo6" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[fc07866a383d07d405a25512054a0e5c]
+class Target--><rect fill="#FEFECE" filter="url(#f19cxkjsq5wbo6)" height="66.7422" id="Target" style="stroke: #A80036; stroke-width: 1.5;" width="98" x="108.5" y="8"/><ellipse cx="123.5" cy="26.9688" fill="#A9DCDF" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M123.6094,22.3125 L122.4531,27.3906 L124.7813,27.3906 L123.6094,22.3125 Z M122.125,20.0781 L125.1094,20.0781 L128.4688,32.4688 L126.0156,32.4688 L125.25,29.4063 L121.9688,29.4063 L121.2188,32.4688 L118.7813,32.4688 L122.125,20.0781 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="70" x="135.5" y="24.1387">«Interface»</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="41" x="150" y="38.1074">Target</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="109.5" x2="205.5" y1="45.9375" y2="45.9375"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="109.5" x2="205.5" y1="53.9375" y2="53.9375"/><ellipse cx="119.5" cy="64.9375" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="128.5" y="68.1479">request()</text><!--MD5=[7393b79429f23cd61e6e6a493d3a2b14]
+class Adaptee--><rect fill="#FEFECE" filter="url(#f19cxkjsq5wbo6)" height="60.8047" id="Adaptee" style="stroke: #A80036; stroke-width: 1.5;" width="109" x="234" y="135"/><ellipse cx="259.8" cy="151" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M262.7688,156.6406 Q262.1906,156.9375 261.55,157.0781 Q260.9094,157.2344 260.2063,157.2344 Q257.7063,157.2344 256.3781,155.5938 Q255.0656,153.9375 255.0656,150.8125 Q255.0656,147.6875 256.3781,146.0313 Q257.7063,144.375 260.2063,144.375 Q260.9094,144.375 261.55,144.5313 Q262.2063,144.6875 262.7688,144.9844 L262.7688,147.7031 Q262.1438,147.125 261.55,146.8594 Q260.9563,146.5781 260.3313,146.5781 Q258.9875,146.5781 258.3,147.6563 Q257.6125,148.7188 257.6125,150.8125 Q257.6125,152.9063 258.3,153.9844 Q258.9875,155.0469 260.3313,155.0469 Q260.9563,155.0469 261.55,154.7813 Q262.1438,154.5 262.7688,153.9219 L262.7688,156.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="53" x="276.2" y="155.1543">Adaptee</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="235" x2="342" y1="167" y2="167"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="235" x2="342" y1="175" y2="175"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="97" x="240" y="189.2104">specificRequest()</text><!--MD5=[f38a85e47f7d4f812523dd9b6d7d2c16]
+class Adapter--><rect fill="#FEFECE" filter="url(#f19cxkjsq5wbo6)" height="60.8047" id="Adapter" style="stroke: #A80036; stroke-width: 1.5;" width="82" x="116.5" y="135"/><ellipse cx="131.5" cy="151" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M134.4688,156.6406 Q133.8906,156.9375 133.25,157.0781 Q132.6094,157.2344 131.9063,157.2344 Q129.4063,157.2344 128.0781,155.5938 Q126.7656,153.9375 126.7656,150.8125 Q126.7656,147.6875 128.0781,146.0313 Q129.4063,144.375 131.9063,144.375 Q132.6094,144.375 133.25,144.5313 Q133.9063,144.6875 134.4688,144.9844 L134.4688,147.7031 Q133.8438,147.125 133.25,146.8594 Q132.6563,146.5781 132.0313,146.5781 Q130.6875,146.5781 130,147.6563 Q129.3125,148.7188 129.3125,150.8125 Q129.3125,152.9063 130,153.9844 Q130.6875,155.0469 132.0313,155.0469 Q132.6563,155.0469 133.25,154.7813 Q133.8438,154.5 134.4688,153.9219 L134.4688,156.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="50" x="145.5" y="155.1543">Adapter</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="117.5" x2="197.5" y1="167" y2="167"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="117.5" x2="197.5" y1="175" y2="175"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="52" x="122.5" y="189.2104">request()</text><!--MD5=[ed6624c6556d5e7b1bd23032162d20b7]
+class Client--><rect fill="#FEFECE" filter="url(#f19cxkjsq5wbo6)" height="48" id="Client" style="stroke: #A80036; stroke-width: 1.5;" width="67" x="6" y="17.5"/><ellipse cx="21" cy="33.5" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M23.9688,39.1406 Q23.3906,39.4375 22.75,39.5781 Q22.1094,39.7344 21.4063,39.7344 Q18.9063,39.7344 17.5781,38.0938 Q16.2656,36.4375 16.2656,33.3125 Q16.2656,30.1875 17.5781,28.5313 Q18.9063,26.875 21.4063,26.875 Q22.1094,26.875 22.75,27.0313 Q23.4063,27.1875 23.9688,27.4844 L23.9688,30.2031 Q23.3438,29.625 22.75,29.3594 Q22.1563,29.0781 21.5313,29.0781 Q20.1875,29.0781 19.5,30.1563 Q18.8125,31.2188 18.8125,33.3125 Q18.8125,35.4063 19.5,36.4844 Q20.1875,37.5469 21.5313,37.5469 Q22.1563,37.5469 22.75,37.2813 Q23.3438,37 23.9688,36.4219 L23.9688,39.1406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="35" x="35" y="37.6543">Client</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="72" y1="49.5" y2="49.5"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="72" y1="57.5" y2="57.5"/><!--MD5=[e8afce381d6978114aa9e217ec9a4ba2]
+reverse link Target to Adapter--><path d="M157.5,95.46 C157.5,108.88 157.5,122.83 157.5,134.64 " fill="none" id="Target&lt;-Adapter" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="150.5,95.19,157.5,75.19,164.5,95.19,150.5,95.19" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ac16be24c016d0cc1b5b2bfc6dfbddbe]
+link Adapter to Adaptee--><path d="M198.69,165.5 C208.65,165.5 218.61,165.5 228.57,165.5 " fill="none" id="Adapter-&gt;Adaptee" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="233.77,165.5,224.77,161.5,228.77,165.5,224.77,169.5,233.77,165.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[431c3f1848dccc83292155c400886313]
+link Client to Target--><path d="M73.15,41.5 C83.16,41.5 93.16,41.5 103.17,41.5 " fill="none" id="Client-&gt;Target" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="108.4,41.5,99.4,37.5,103.4,41.5,99.4,45.5,108.4,41.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[59fa31e7c25c2684cc1b2a15349c6dce]
+@startuml adapter-object-schema
+
+abstract class Target<<Interface>>{
+    +request()
+}
+
+class Adaptee{
+    specificRequest()
+}
+
+class Adapter{
+    request()
+}
+
+Target <|-down- Adapter
+Adapter -right-> Adaptee
+
+
+class Client
+
+Client -> Target
+@enduml
+
+PlantUML version 1.2020.10(Sun May 17 11:35:57 CEST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 14.0.1+7-Ubuntu-1ubuntu1
+Operating System: Linux
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
