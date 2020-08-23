@@ -10,7 +10,6 @@ void testDuck(std::shared_ptr<Duck> duck){
     duck->fly();
 }
 
-
 int main(){
     auto duck = std::make_shared<MallardDuck>();
     auto turkey = std::make_shared<WildTurkey>();
