@@ -8,12 +8,8 @@
 
 *Principle of the Least Knowledge (Law of Demeter)* - talk only to your immediate friends.
 
-## Compile
-
-To compile use command: **g++ -std=c++17 main.cpp -o main**
-
 ## Class diagram schema for Command pattern
 ![Alt text](./facade-schema.svg)
 
-## Class diagram of example
+## Class diagram of facade example
 ![Alt text](./facade.svg)

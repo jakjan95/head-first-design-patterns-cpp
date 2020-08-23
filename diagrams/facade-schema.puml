@@ -1,0 +1,31 @@
+@startuml facade-schema
+cloud subsystem{
+    class A{
+        +operationA()
+    }
+    class B{
+        +operationB()
+    }
+    class C{
+        +operationC()
+    }
+}
+
+class Facade{
+    -classA
+    -classB
+    -classC
+    +subsystemOperation()
+    +subsystemAnotherOperation()
+
+}
+
+Facade *-down- A
+Facade *-down- B
+Facade *-down- C
+
+class Client{
+}
+
+Client -> Facade
+@enduml

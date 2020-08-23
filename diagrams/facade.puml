@@ -1,0 +1,124 @@
+@startuml facade
+
+class Amplifier{
+    -description_
+    -tuner_ : Tuner
+    -player_ : StreamingPlayer
+    +on()
+    +off()
+    +setStereoSound()
+    +setSurroundSound()
+    +setVolume()
+    +setTuner()
+    +setStreamingPlayer()
+}
+
+class CdPlayer{
+    -description_
+    -amplifier_ : Amplifier
+    -title_
+    +on()
+    +off()
+    +eject()
+    +play()
+    +stop()
+    +pause()
+}
+
+class Projector{
+    -description_
+    -player_ : StreamingPlayer
+    +on()
+    +off()
+    +wideScreenMode()
+    +tvMode()
+}
+
+class StreamingPlayer{
+    -description_
+    -amplifier_ : Amplifier
+    -move_
+    +on()
+    +off()
+    +play()
+    +stop()
+    +pause()
+    +setTwoChannelAudio()
+    +setSurroundAudio()
+}
+
+class Tuner{
+    -description_
+    -amplifier_ : Amplifier
+    -frequency_
+
+}
+
+Amplifier <-up- Tuner
+Amplifier <-up- StreamingPlayer
+Amplifier <-up- CdPlayer
+
+Amplifier -down-> Tuner
+Amplifier -down-> StreamingPlayer
+Amplifier -down-> CdPlayer
+
+StreamingPlayer <-up- Projector
+
+class Screen{
+    -description_
+    +up()
+    +down()
+}
+
+class TheaterLights{
+    -description_
+    +on()
+    +off()
+    +dim()
+    +on()
+    +off()
+    +setFrequency()
+    +setAm()
+    +setFm()
+}
+
+class PopcornPopper{
+    -description_
+    +on()
+    +off()
+    +pop()
+}
+
+class HomeTheaterFacade{
+    -amp_ : Amplifier
+    -tuner_ : Tuner
+    -player_ : StreamingPlayer
+    -cd_ : CdPlayer
+    -projector_ : Projector
+    -lights_ : TheaterLights
+    -screen_ : Screen
+    -popcorn_ : PopcornPopper
+    +watchMovie()
+    +endMovie()
+    +listenToCd()
+    +endCd()
+    +listenToRadio()
+    +endRadio()
+}
+
+class Client{
+}
+
+HomeTheaterFacade *-down- Amplifier
+HomeTheaterFacade *-down- Tuner
+HomeTheaterFacade *-down- StreamingPlayer
+HomeTheaterFacade *-down- CdPlayer
+HomeTheaterFacade *-down- Projector
+HomeTheaterFacade *-down- TheaterLights
+HomeTheaterFacade *-down- Screen
+HomeTheaterFacade *-down- PopcornPopper
+
+
+Client -> HomeTheaterFacade
+
+@enduml
