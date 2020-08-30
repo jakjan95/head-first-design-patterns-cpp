@@ -1,0 +1,37 @@
+@startuml template-method-schema
+class AbstractClass{
+    +templateMethod()
+    {abstract}#primitiveOperation1()
+    {abstract}#primitiveOperation2()
+    {abstract}#primitiveOperation3()
+}
+
+note right of AbstractClass
+  templateMethod(){
+      primitiveOperation1();
+      primitiveOperation2();
+      primitiveOperation3();
+  }
+end note
+
+class ConcreteClassA{
+    #primitiveOperation1()
+    #primitiveOperation2()
+    #primitiveOperation3()
+}
+
+class ConcreteClassB{
+    #primitiveOperation1()
+    #primitiveOperation2()
+    #primitiveOperation3()
+}
+
+AbstractClass <|-down- ConcreteClassA
+AbstractClass <|-down- ConcreteClassB
+
+class Client
+
+Client -right-> AbstractClass
+@enduml
+
+

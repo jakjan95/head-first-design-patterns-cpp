@@ -1,0 +1,34 @@
+@startuml template-method
+
+class CaffeineBeverageWithHook{
+    +prepareReceipe()
+    {abstract}+brew()
+    {abstract}+addCondiments()
+    +boilWater()
+    +pourInCup()
+    +customerWantsCondiments()
+
+}
+
+class CoffeeWithHook{
+    +brew()
+    +addCondiments()
+    +customerWantsCondiments()
+    +getUserInput()
+
+}
+
+class TeaWithHook{
+    +brew()
+    +addCondiments()
+    +customerWantsCondiments()
+    +getUserInput()
+}
+
+CaffeineBeverageWithHook <|-down- CoffeeWithHook
+CaffeineBeverageWithHook <|-down- TeaWithHook
+
+class Client
+
+Client -right-> CaffeineBeverageWithHook
+@enduml
