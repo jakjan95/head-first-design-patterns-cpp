@@ -12,8 +12,8 @@
 
 The Factory Method is a specialization of Template Method
 
-## Class diagram schema for Facade pattern
+## Class diagram schema for Template Method pattern
 ![Alt text](./template-method-schema.svg)
 
-## Class diagram of Facade Pattern example
+## Class diagram of Template Method example
 ![Alt text](./template-method.svg)
