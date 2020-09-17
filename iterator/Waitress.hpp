@@ -5,16 +5,21 @@
 class Waitress {
 public:
     Waitress(std::shared_ptr<Menu> pancakeHouseMenu,
-             std::shared_ptr<Menu> dinerMenu)
-        : pancakeHouseMenu_{std::move(pancakeHouseMenu)}, dinerMenu_{std::move(dinerMenu)} {}
+             std::shared_ptr<Menu> dinerMenu,
+             std::shared_ptr<Menu> cafeMenu)
+        : pancakeHouseMenu_{std::move(pancakeHouseMenu)}, dinerMenu_{std::move(dinerMenu)}, cafeMenu_{std::move(cafeMenu)} {}
 
     void printMenu() {
         auto pancakeIterator = pancakeHouseMenu_->createIterator();
         auto dinerIterator = dinerMenu_->createIterator();
+        auto cafeIterator = cafeMenu_->createIterator();
+
         std::cout << "Menu\n----\nBREAKFAST\n";
         printMenu(pancakeIterator);
         std::cout << "\nLUNCH\n";
         printMenu(dinerIterator);
+        std::cout << "\nDINNER\n";
+        printMenu(cafeIterator);
     }
 
     //other methods here
@@ -22,6 +27,7 @@ public:
 private:
     std::shared_ptr<Menu> pancakeHouseMenu_;
     std::shared_ptr<Menu> dinerMenu_;
+    std::shared_ptr<Menu> cafeMenu_;
 
     void printMenu(std::shared_ptr<Iterator> itererator) {
         while (itererator->hasNext()) {
