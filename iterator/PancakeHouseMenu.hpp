@@ -3,10 +3,11 @@
 #include <memory>
 #include <vector>
 
+#include "Menu.hpp"
 #include "MenuItem.hpp"
 #include "PancakeHouseIterator.hpp"
 
-class PancakeHouseMenu {
+class PancakeHouseMenu : public Menu {
 public:
     PancakeHouseMenu() {
         addItem("K&B's Pancake Breakfast", "Pancakes with scrambled eggs, and toast", true, 2.99);
@@ -19,7 +20,7 @@ public:
         menuItems_.push_back(std::make_shared<MenuItem>(name, description, vegetarian, price));
     }
 
-    std::shared_ptr<Iterator> createIterator() {
+    std::shared_ptr<Iterator> createIterator() override {
         return std::make_shared<PancakeHouseIterator>(menuItems_);
     }
 

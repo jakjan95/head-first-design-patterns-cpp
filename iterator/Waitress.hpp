@@ -1,12 +1,11 @@
 #pragma once
 
-#include "DinerMenu.hpp"
-#include "PancakeHouseMenu.hpp"
+#include "Menu.hpp"
 
 class Waitress {
 public:
-    Waitress(std::shared_ptr<PancakeHouseMenu> pancakeHouseMenu,
-             std::shared_ptr<DinerMenu> dinerMenu)
+    Waitress(std::shared_ptr<Menu> pancakeHouseMenu,
+             std::shared_ptr<Menu> dinerMenu)
         : pancakeHouseMenu_{std::move(pancakeHouseMenu)}, dinerMenu_{std::move(dinerMenu)} {}
 
     void printMenu() {
@@ -21,8 +20,8 @@ public:
     //other methods here
 
 private:
-    std::shared_ptr<PancakeHouseMenu> pancakeHouseMenu_;
-    std::shared_ptr<DinerMenu> dinerMenu_;
+    std::shared_ptr<Menu> pancakeHouseMenu_;
+    std::shared_ptr<Menu> dinerMenu_;
 
     void printMenu(std::shared_ptr<Iterator> itererator) {
         while (itererator->hasNext()) {

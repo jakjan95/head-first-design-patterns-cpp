@@ -5,9 +5,10 @@
 #include <memory>
 
 #include "DinerMenuIterator.hpp"
+#include "Menu.hpp"
 #include "MenuItem.hpp"
 
-class DinerMenu {
+class DinerMenu : public Menu {
 public:
     DinerMenu() {
         addItem("Vegetarian BLT", "(Fakin') Bacon with lettuce & tomato on whole wheat", true, 2.99);
@@ -26,7 +27,7 @@ public:
         }
     }
 
-    std::shared_ptr<Iterator> createIterator() {
+    std::shared_ptr<Iterator> createIterator() override {
         return std::make_shared<DinerMenuIterator>(menuItems_);
     }
 
