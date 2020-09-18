@@ -1,0 +1,84 @@
+@startuml iterator
+
+class MenuItem{
+    -name_
+    -description_
+    -vegetarian_
+    -price_
+    +getName()
+    +getDescription()
+    +getPrice()
+    +isVegetarian()
+}
+
+abstract class Menu <<interface>>{
+    +createIterator()
+}
+
+class CafeMenu{
+    -menuItems_ : unorder_map
+    +createIterator()
+}
+
+class DinerMenu{
+    -menuItems_ : array
+    +createIterator()
+}
+
+class PancakeHouseMenu{
+    -menuItems_ : vector
+    +createIterator()
+}
+
+Menu <|.down. CafeMenu
+Menu <|.down. DinerMenu
+Menu <|.down. PancakeHouseMenu
+
+abstract class Iterator<<interface>>{
+    +hasNext()
+    +next()
+}
+
+class CafeMenuIterator{
+    -items_ : unordered_map
+    -position_ : unordered_map::iterator
+    +hasNext()
+    +next()
+}
+
+class DinerMenuIterator{
+    -items_ : array
+    -position_
+    +hasNext()
+    +next()
+}
+
+class PancakeHouseIterator{
+    -items_ : vector
+    -position_
+    +hasNext()
+    +next()
+}
+
+Iterator <|.down. CafeMenuIterator
+Iterator <|.down. DinerMenuIterator
+Iterator <|.down. PancakeHouseIterator
+
+
+class Waitress{
+    -pancakeHouseMenu_
+    -dinerMenu_
+    -cafeMenu_
+    -printMenu(Iterator)
+    +printMenu()
+
+}
+
+Iterator <-right- Waitress
+Waitress -left-> Menu
+
+CafeMenu o-- MenuItem
+DinerMenu o-- MenuItem
+PancakeHouseMenu o-- MenuItem
+
+@enduml

@@ -1,0 +1,32 @@
+@startuml iterator-schema
+
+abstract class Aggregate<<interface>>{
+    +createIterator()
+}
+
+class ConcreteAggregate{
+    createIterator()
+}
+
+Aggregate <|.down. ConcreteAggregate
+
+
+abstract class Iterator<<interface>>{
+    +hasNext()
+    +next()
+}
+
+class ConcreteIterator{
+    +hasNext()
+    +next()
+}
+
+Iterator <|.down. ConcreteIterator
+
+class Client{
+
+}
+
+Client -left-> Aggregate
+Client -right-> Iterator
+@enduml
