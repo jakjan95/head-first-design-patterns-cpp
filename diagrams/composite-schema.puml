@@ -1,0 +1,27 @@
+@startuml composite-schema
+
+class Component{
+    +operation()
+    +add(Component)
+    +remove(Component)
+    +getChild(int)
+}
+
+class Leaf{
+    +operation()
+}
+
+class Composite{
+    +operation()
+    +add(Component)
+    +remove(Component)
+    +getChild(int)
+}
+
+Component <|-down- Leaf
+Component <|-down- Composite
+
+Client -right-> Component
+
+Component -up-* Composite
+@enduml

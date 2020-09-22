@@ -1,0 +1,50 @@
+@startuml composite
+
+abstract class MenuComponent{
+    +add()
+    +remove()
+    +getChild()
+    +getName()
+    +getDescription()
+    +getPrice()
+    +isVegetarian()
+    +print()
+}
+
+class MenuItem{
+    -name_
+    -description_
+    -vegetarian_
+    -price_
+    +getName()
+    +getDescription()
+    +getPrice()
+    +isVegetarian()
+    +print()
+}
+
+class Menu{
+    -menuComponents_
+    -name_
+    -description_
+    +add()
+    +remove()
+    +getChild()
+    +getName()
+    +getDescription()
+    +print()
+}
+
+class Waitress{
+    -allMenus_
+    +printMenu()
+}
+
+MenuComponent <|-down- MenuItem
+MenuComponent <|-down- Menu
+
+Waitress -right-> MenuComponent
+
+MenuComponent -up-* Menu
+
+@enduml
