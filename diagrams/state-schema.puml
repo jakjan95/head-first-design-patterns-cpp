@@ -1,0 +1,30 @@
+@startuml state-schema
+
+class Context{
+    request()
+}
+
+note left of Context
+  request(){
+      state.handle()
+  }
+end note
+
+abstract class State{
+    handle()
+}
+
+State <-right-o Context
+
+class ConcreteStateA{
+    +handle()
+}
+
+class ConcreteStateB{
+    +handle()
+}
+
+State <|-down-ConcreteStateA
+State <|-down-ConcreteStateB
+
+@enduml

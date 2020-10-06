@@ -1,0 +1,80 @@
+@startuml state
+
+abstract class State{
+    +insertQuarter()
+    +ejectQuarter()
+    +turnCrank()
+    +dispense()
+}
+
+class GumballMachine{
+    -soldOutState_
+    -noQuarterState_
+    -hasQuarterState_
+    -soldState_
+    -winnerState_
+    -state_{soldOutState_}
+    -count_ = 0
+    +insertQuarter()
+    +ejectQuarter()
+    +turnCrank()
+    +setState()
+    +releaseBall()
+    +getHasQuarterState()
+    +getNoQuarterState()
+    +getSoldState()
+    +getSoldOutState()
+    +getWinnerState()
+    +getCount()
+    +refill()
+}
+
+State <-right-o GumballMachine
+
+class HasQuarterState{
+    -gumballMachine_
+    +insertQuarter()
+    +ejectQuarter()
+    +turnCrank()
+    +dispense()
+}
+
+class NoQuarterState{
+    -gumballMachine_
+    +insertQuarter()
+    +ejectQuarter()
+    +turnCrank()
+    +dispense()
+}
+
+class SoldOutState{
+    -gumballMachine_
+    +insertQuarter()
+    +ejectQuarter()
+    +turnCrank()
+    +dispense()
+}
+
+class SoldState{
+    -gumballMachine_
+    +insertQuarter()
+    +ejectQuarter()
+    +turnCrank()
+    +dispense()
+}
+
+class WinnerState{
+    -gumballMachine_
+    +insertQuarter()
+    +ejectQuarter()
+    +turnCrank()
+    +dispense()
+}
+
+State <|-down-NoQuarterState
+State <|-down-HasQuarterState
+State <|-down-SoldState
+State <|-down-SoldOutState
+State <|-down-WinnerState
+
+@enduml
