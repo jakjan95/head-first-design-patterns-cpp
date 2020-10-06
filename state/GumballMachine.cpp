@@ -41,12 +41,17 @@ std::shared_ptr<State> GumballMachine::getSoldOutState() const {
     return soldOutState_;
 }
 
+std::shared_ptr<State> GumballMachine::getWinnerState() const {
+    return winnerState_;
+}
+
 size_t GumballMachine::getCount() const {
     return count_;
 }
 
 std::ostream& operator<<(std::ostream& os, GumballMachine gm) {
     os << "*** Gumball Machine ***\n"
+       << "cpp-enabled Standing Gumball Model #2004\n"
        << "Inventory: " << gm.count_ << '\n';
     if (gm.count_ > 0) {
         os << "Machine is waiting for quarter\n";

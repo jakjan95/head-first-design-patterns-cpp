@@ -3,17 +3,20 @@
 
 #include "GumballMachine.hpp"
 
-#include "SoldOutState.hpp"
-#include "NoQuarterState.hpp"
 #include "HasQuarterState.hpp"
+#include "NoQuarterState.hpp"
+#include "SoldOutState.hpp"
 #include "SoldState.hpp"
+#include "WinnerState.hpp"
 
+//Constructor moved here due to dependency issues(forward declaration wasn't enough)
 GumballMachine::GumballMachine(size_t numberGumballs)
     : count_{numberGumballs} {
     soldOutState_ = std::make_shared<SoldOutState>(this);
     noQuarterState_ = std::make_shared<NoQuarterState>(this);
     hasQuarterState_ = std::make_shared<HasQuarterState>(this);
     soldState_ = std::make_shared<SoldState>(this);
+    winnerState_ = std::make_shared<WinnerState>(this);
 
     if (numberGumballs > 0) {
         state_ = noQuarterState_;
@@ -52,7 +55,7 @@ int main() {
     gumballMachine->insertQuarter();
     gumballMachine->turnCrank();
 
-    std::cout << *gumballMachine << '\n';
+    std::cout << *gumballMachine;
 
     return 0;
 }
