@@ -49,6 +49,11 @@ size_t GumballMachine::getCount() const {
     return count_;
 }
 
+void GumballMachine::refill(size_t count) {
+    count_ = count;
+    state_ = noQuarterState_;
+}
+
 std::ostream& operator<<(std::ostream& os, GumballMachine gm) {
     os << "*** Gumball Machine ***\n"
        << "cpp-enabled Standing Gumball Model #2004\n"

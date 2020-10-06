@@ -20,6 +20,7 @@ public:
     std::shared_ptr<State> getWinnerState() const;
 
     size_t getCount() const;
+    void refill(size_t count);
     friend std::ostream& operator<<(std::ostream& os, GumballMachine gm);
 
 private:

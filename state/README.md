@@ -13,8 +13,8 @@ The State and Strategy Patterns have the same class diagrams, but they differ in
 
 ## Class diagram schema for State pattern
 
-![Alt text](./composite-schema.svg)
+![Alt text](./state-schema.svg)
 
 ## Class diagram of State Pattern example
 
-![Alt text](./composite.svg)
+![Alt text](./state.svg)
