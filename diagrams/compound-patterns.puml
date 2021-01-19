@@ -1,0 +1,172 @@
+@startuml compound-patterns
+
+class Client
+
+abstract class AbstractDuckFactory <<interface>> {
+    +createMallardDuck()
+    +createRedheadDuck()
+    +createDuckCall()
+    +createRubberDuck()
+}
+
+class DuckFactory {
+    +createMallardDuck()
+    +createRedheadDuck()
+    +createDuckCall()
+    +createRubberDuck()
+}
+
+class CountingDuckFactory {
+    +createMallardDuck()
+    +createRedheadDuck()
+    +createDuckCall()
+    +createRubberDuck()
+}
+
+AbstractDuckFactory <|-- DuckFactory
+AbstractDuckFactory <|-- CountingDuckFactory
+
+
+class Observable {
+    -observers_
+    -duck_
+    +Observable()
+    +registerObserver()
+    +notifyObservers()
+}
+
+abstract class QuackObservable<<interface>> {
+    +registerObserver()
+    +notifyObserver()
+}
+
+abstract class Quackable<<interface>> {
+    +quack()
+    +print()
+}
+
+QuackObservable <|-- Quackable
+
+class MallardDuck {
+    -observable_
+    +MallardDuck()
+    +quack()
+    +registerObserver()
+    +notifyObserver()
+    +print()
+}
+
+class RedheadDuck {
+    -observable_
+    +RedheadDuck()
+    +quack()
+    +registerObserver()
+    +notifyObserver()
+    +print()
+}
+
+class RubberDuck {
+    -observable_
+    +RubberDuck()
+    +quack()
+    +registerObserver()
+    +notifyObserver()
+    +print()
+}
+
+class DuckCall {
+    -observable_
+    +DuckCall()
+    +quack()
+    +registerObserver()
+    +notifyObserver()
+    +print()
+}
+
+class GooseAdapter  {
+    -goose_
+    -observable_
+    +GooseAdapter()
+    +quack()
+    +registerObserver()
+    +notifyObserver()
+    +print()
+}
+
+class Flock {
+    -quackers_
+    +add()
+    +quack()
+    +registerObserver()
+    +notifyObserver()
+    +print()
+}
+
+class QuackCounter {
+    -duck_
+    -numberOfQuacks_
+    +QuackCounter()
+    +quack()
+    +getQuacks()
+    +registerObserver()
+    +notifyObserver()
+    +print()
+}
+
+Quackable <|.. MallardDuck
+Quackable <|.. RedheadDuck
+Quackable <|.. RubberDuck
+Quackable <|.. DuckCall
+Quackable <|.. GooseAdapter
+Quackable <|.. Flock
+Quackable <|.. QuackCounter
+
+
+class Goose {
+    +honk()
+}
+
+class Observer {
+    +update()
+}
+
+class Quackologist {
+    +update()
+}
+
+Observer <- Observable
+
+MallardDuck --> Observable
+RedheadDuck --> Observable
+RubberDuck --> Observable
+DuckCall --> Observable
+GooseAdapter --> Observable
+Flock --> Observable
+QuackCounter --> Observable
+
+GooseAdapter --> Goose
+
+DuckFactory --> MallardDuck
+DuckFactory --> RedheadDuck
+DuckFactory --> RubberDuck
+DuckFactory --> DuckCall
+DuckFactory --> MallardDuck
+
+CountingDuckFactory --> MallardDuck
+CountingDuckFactory --> RedheadDuck
+CountingDuckFactory --> RubberDuck
+CountingDuckFactory --> DuckCall
+CountingDuckFactory --> MallardDuck
+
+
+
+QuackObservable <-- Observable
+
+Observer <|.. Quackologist
+
+Client -right-> AbstractDuckFactory
+Client -down-> Quackologist
+Client -down-> Quackable
+
+
+@enduml
