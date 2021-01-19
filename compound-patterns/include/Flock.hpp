@@ -13,7 +13,7 @@ public:
 
     void quack() override {
         for (auto it = quackers_.begin(); it != quackers_.end(); it++) {
-            //in order to emulate iterator like in a java example
+            //in order to emulate iterator like in java example
             (*it)->quack();
         }
     }

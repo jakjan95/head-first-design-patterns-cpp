@@ -6,8 +6,6 @@
 #include "Observer.hpp"
 #include "QuackObservable.hpp"
 
-//Tutaj jest cos popsute, cos nie tak
-
 class Observable : public QuackObservable {
 public:
     explicit Observable(QuackObservable* duck)
